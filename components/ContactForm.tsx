@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
+import { analytics } from '@/lib/analytics'
 
 interface FormErrors {
   nome?: string
@@ -130,6 +131,10 @@ export default function ContactForm() {
 
       // Sucesso
       setSubmitSuccess(true)
+      
+      // Track evento de conversão no Google Analytics
+      analytics.contactFormSubmit()
+      
       setNome('')
       setEmail('')
       setTelefone('')
