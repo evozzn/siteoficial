@@ -57,11 +57,44 @@ export default function ContactForm() {
     }
 
     setIsSubmitting(true)
+    setSubmitSuccess(false)
 
-    // Simulação de envio (sem API ainda)
-    // Na Fase 7, isso será substituído por uma chamada de API real
-    setTimeout(() => {
-      setIsSubmitting(false)
+    try {
+      const response = await fetch('/api/contato', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nome: nome.trim(),
+          email: email.trim(),
+          mensagem: mensagem.trim(),
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        // Erros de validação do servidor
+        if (data.errors && Array.isArray(data.errors)) {
+          const serverErrors: FormErrors = {}
+          data.errors.forEach((error: string) => {
+            if (error.includes('Nome')) serverErrors.nome = error
+            else if (error.includes('Email')) serverErrors.email = error
+            else if (error.includes('Mensagem')) serverErrors.mensagem = error
+          })
+          setErrors(serverErrors)
+        } else {
+          // Erro genérico
+          setErrors({
+            mensagem: data.error || 'Erro ao enviar mensagem. Tente novamente.',
+          })
+        }
+        setIsSubmitting(false)
+        return
+      }
+
+      // Sucesso
       setSubmitSuccess(true)
       setNome('')
       setEmail('')
@@ -72,7 +105,14 @@ export default function ContactForm() {
       setTimeout(() => {
         setSubmitSuccess(false)
       }, 5000)
-    }, 1000)
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error)
+      setErrors({
+        mensagem: 'Erro de conexão. Verifique sua internet e tente novamente.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -180,11 +220,12 @@ export default function ContactForm() {
         {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
       </button>
 
-      {/* Nota sobre API */}
-      <p className="text-xs text-gray-500 text-center">
-        * O formulário está em modo de demonstração. A integração com API será
-        implementada na Fase 7.
-      </p>
+      {/* Mensagem de erro geral */}
+      {errors.mensagem && !errors.nome && !errors.email && (
+        <div className="bg-red-500/10 border border-red-500/50 text-red-400 p-4 rounded-lg">
+          <p className="text-sm">{errors.mensagem}</p>
+        </div>
+      )}
     </form>
   )
 }
