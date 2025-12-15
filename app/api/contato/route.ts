@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 interface ContactFormData {
   nome: string
   email: string
+  telefone: string
   mensagem: string
 }
 
@@ -20,6 +21,16 @@ function validateContactData(data: ContactFormData): { valid: boolean; errors: s
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(data.email)) {
       errors.push('Email inválido')
+    }
+  }
+
+  if (!data.telefone) {
+    errors.push('Telefone é obrigatório')
+  } else {
+    // Remove caracteres não numéricos para validação
+    const cleanPhone = data.telefone.replace(/\D/g, '')
+    if (cleanPhone.length < 10 || cleanPhone.length > 11) {
+      errors.push('Telefone inválido. Use o formato (00) 00000-0000')
     }
   }
 
@@ -61,6 +72,7 @@ async function sendEmail(data: ContactFormData): Promise<{ success: boolean; err
           <h2>Novo contato recebido</h2>
           <p><strong>Nome:</strong> ${data.nome}</p>
           <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Telefone:</strong> ${data.telefone}</p>
           <p><strong>Mensagem:</strong></p>
           <p>${data.mensagem.replace(/\n/g, '<br>')}</p>
         `,
@@ -79,6 +91,7 @@ async function sendEmail(data: ContactFormData): Promise<{ success: boolean; err
     console.log('📧 Email que seria enviado:')
     console.log('De:', data.email)
     console.log('Nome:', data.nome)
+    console.log('Telefone:', data.telefone)
     console.log('Mensagem:', data.mensagem)
     console.log('\n⚠️  Configure RESEND_API_KEY no .env para envio real')
 

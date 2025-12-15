@@ -5,12 +5,14 @@ import { useState, FormEvent } from 'react'
 interface FormErrors {
   nome?: string
   email?: string
+  telefone?: string
   mensagem?: string
 }
 
 export default function ContactForm() {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
+  const [telefone, setTelefone] = useState('')
   const [mensagem, setMensagem] = useState('')
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -19,6 +21,29 @@ export default function ContactForm() {
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return emailRegex.test(email)
+  }
+
+  const validatePhone = (phone: string): boolean => {
+    // Remove caracteres não numéricos
+    const cleanPhone = phone.replace(/\D/g, '')
+    // Valida telefone brasileiro (10 ou 11 dígitos)
+    return cleanPhone.length >= 10 && cleanPhone.length <= 11
+  }
+
+  const formatPhone = (value: string): string => {
+    // Remove tudo que não é dígito
+    const numbers = value.replace(/\D/g, '')
+    
+    // Aplica máscara: (00) 00000-0000 ou (00) 0000-0000
+    if (numbers.length <= 2) {
+      return numbers
+    } else if (numbers.length <= 6) {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`
+    } else if (numbers.length <= 10) {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 6)}-${numbers.slice(6)}`
+    } else {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7, 11)}`
+    }
   }
 
   const validateForm = (): boolean => {
@@ -36,6 +61,13 @@ export default function ContactForm() {
       newErrors.email = 'Email é obrigatório'
     } else if (!validateEmail(email)) {
       newErrors.email = 'Email inválido'
+    }
+
+    // Validação do telefone
+    if (!telefone.trim()) {
+      newErrors.telefone = 'Telefone é obrigatório'
+    } else if (!validatePhone(telefone)) {
+      newErrors.telefone = 'Telefone inválido. Use o formato (00) 00000-0000'
     }
 
     // Validação da mensagem
@@ -68,6 +100,7 @@ export default function ContactForm() {
         body: JSON.stringify({
           nome: nome.trim(),
           email: email.trim(),
+          telefone: telefone.trim(),
           mensagem: mensagem.trim(),
         }),
       })
@@ -81,6 +114,7 @@ export default function ContactForm() {
           data.errors.forEach((error: string) => {
             if (error.includes('Nome')) serverErrors.nome = error
             else if (error.includes('Email')) serverErrors.email = error
+            else if (error.includes('Telefone')) serverErrors.telefone = error
             else if (error.includes('Mensagem')) serverErrors.mensagem = error
           })
           setErrors(serverErrors)
@@ -98,6 +132,7 @@ export default function ContactForm() {
       setSubmitSuccess(true)
       setNome('')
       setEmail('')
+      setTelefone('')
       setMensagem('')
       setErrors({})
 
@@ -171,6 +206,35 @@ export default function ContactForm() {
         )}
       </div>
 
+      {/* Telefone */}
+      <div>
+        <label htmlFor="telefone" className="block text-gray-300 mb-2">
+          Telefone <span className="text-red-500">*</span>
+        </label>
+        <input
+          type="tel"
+          id="telefone"
+          value={telefone}
+          onChange={(e) => {
+            const formatted = formatPhone(e.target.value)
+            setTelefone(formatted)
+            if (errors.telefone) {
+              setErrors({ ...errors, telefone: undefined })
+            }
+          }}
+          className={`w-full bg-gray-800 border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 transition-colors ${
+            errors.telefone
+              ? 'border-red-500 focus:ring-red-500'
+              : 'border-gray-700 focus:border-primary focus:ring-primary'
+          }`}
+          placeholder="(00) 00000-0000"
+          maxLength={15}
+        />
+        {errors.telefone && (
+          <p className="mt-1 text-sm text-red-500">{errors.telefone}</p>
+        )}
+      </div>
+
       {/* Mensagem */}
       <div>
         <label htmlFor="mensagem" className="block text-gray-300 mb-2">
@@ -221,7 +285,7 @@ export default function ContactForm() {
       </button>
 
       {/* Mensagem de erro geral */}
-      {errors.mensagem && !errors.nome && !errors.email && (
+      {errors.mensagem && !errors.nome && !errors.email && !errors.telefone && (
         <div className="bg-red-500/10 border border-red-500/50 text-red-400 p-4 rounded-lg">
           <p className="text-sm">{errors.mensagem}</p>
         </div>

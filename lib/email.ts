@@ -10,6 +10,7 @@
 interface EmailData {
   nome: string
   email: string
+  telefone: string
   mensagem: string
 }
 
@@ -29,6 +30,7 @@ export async function sendContactEmail(data: EmailData): Promise<{ success: bool
         <h2>Novo contato recebido</h2>
         <p><strong>Nome:</strong> ${data.nome}</p>
         <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Telefone:</strong> ${data.telefone}</p>
         <p><strong>Mensagem:</strong></p>
         <p>${data.mensagem.replace(/\n/g, '<br>')}</p>
       `,
