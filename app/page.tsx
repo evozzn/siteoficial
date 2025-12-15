@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Logo from '@/components/Logo'
 
 export const metadata: Metadata = {
   title: 'Bem-vindo',
@@ -26,12 +27,11 @@ export default function Home() {
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20">
         <div className="text-center max-w-5xl mx-auto animate-fade-in-up">
           {/* Logo centralizado grande */}
-          <div className="mb-12">
-            <h1 className="text-7xl md:text-9xl font-bold text-white mb-4 tracking-tight">
-              <span className="bg-gradient-to-r from-white via-primary to-white bg-clip-text text-transparent glow-text">
-                EVOZZN
-              </span>
-            </h1>
+          <div className="mb-12 flex justify-center">
+            <div className="relative">
+              <Logo variant="icon" size="xl" className="drop-shadow-2xl" />
+              <div className="absolute inset-0 bg-primary/20 blur-3xl -z-10 rounded-full" />
+            </div>
           </div>
 
           {/* Headline principal */}
