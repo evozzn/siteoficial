@@ -1,4 +1,17 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Início',
+  description:
+    'Transformamos ideias em resultados estratégicos. Agência de marketing premium especializada em criar soluções que geram impacto real para o seu negócio.',
+  openGraph: {
+    title: 'Evozzn - Transformamos ideias em resultados estratégicos',
+    description:
+      'Agência de marketing premium especializada em criar soluções que geram impacto real para o seu negócio.',
+    url: '/home',
+  },
+}
 
 export default function HomePage() {
   return (

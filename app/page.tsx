@@ -1,4 +1,16 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Bem-vindo',
+  description:
+    'Bem-vindo à Evozzn, agência de marketing premium. Transformamos ideias em resultados estratégicos.',
+  openGraph: {
+    title: 'Bem-vindo à Evozzn',
+    description:
+      'Bem-vindo à Evozzn, agência de marketing premium. Transformamos ideias em resultados estratégicos.',
+  },
+}
 
 export default function Home() {
   return (

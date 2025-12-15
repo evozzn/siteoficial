@@ -1,4 +1,17 @@
+import type { Metadata } from 'next'
 import ContactForm from '@/components/ContactForm'
+
+export const metadata: Metadata = {
+  title: 'Contato',
+  description:
+    'Entre em contato com a Evozzn. Estamos prontos para ajudar você a transformar seu negócio. Fale conosco e vamos conversar sobre seu projeto.',
+  openGraph: {
+    title: 'Entre em Contato - Evozzn',
+    description:
+      'Entre em contato com a Evozzn. Estamos prontos para ajudar você a transformar seu negócio.',
+    url: '/contato',
+  },
+}
 
 export default function ContatoPage() {
   return (

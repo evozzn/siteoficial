@@ -1,4 +1,17 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Serviços',
+  description:
+    'Soluções completas de marketing: Estratégia Digital, Performance Marketing, Branding & Design, SEO & Conteúdo, Social Media e Consultoria.',
+  openGraph: {
+    title: 'Nossos Serviços - Evozzn',
+    description:
+      'Soluções completas de marketing para impulsionar seu negócio e alcançar resultados estratégicos.',
+    url: '/servicos',
+  },
+}
 
 export default function ServicosPage() {
   const servicos = [
