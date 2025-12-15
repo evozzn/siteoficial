@@ -2,45 +2,41 @@ import Link from 'next/link'
 
 export default function Header() {
   return (
-    <header className="w-full border-b border-gray-800 bg-background/95 backdrop-blur-sm sticky top-0 z-50">
+    <header className="w-full border-b border-gray-800/50 bg-background/80 backdrop-blur-md sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-primary">Evozzn</span>
+          <Link href="/" className="flex items-center group">
+            <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white to-primary bg-clip-text text-transparent group-hover:from-primary group-hover:to-secondary transition-all duration-300">
+              EVOZZN
+            </span>
           </Link>
 
           {/* Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
-              href="/home"
-              className="text-gray-300 hover:text-primary transition-colors duration-200"
-            >
-              Início
-            </Link>
-            <Link
-              href="/sobre"
-              className="text-gray-300 hover:text-primary transition-colors duration-200"
-            >
-              Sobre
-            </Link>
-            <Link
               href="/servicos"
-              className="text-gray-300 hover:text-primary transition-colors duration-200"
+              className="text-gray-300 hover:text-primary transition-colors duration-200 font-medium"
             >
               Serviços
             </Link>
             <Link
-              href="/cases"
-              className="text-gray-300 hover:text-primary transition-colors duration-200"
+              href="/sobre"
+              className="text-gray-300 hover:text-primary transition-colors duration-200 font-medium"
             >
-              Cases
+              Sobre
+            </Link>
+            <Link
+              href="/cases"
+              className="text-gray-300 hover:text-primary transition-colors duration-200 font-medium"
+            >
+              Resultados
             </Link>
             <Link
               href="/contato"
-              className="text-gray-300 hover:text-primary transition-colors duration-200"
+              className="bg-primary hover:bg-secondary text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 border border-primary/50 hover:border-secondary/50"
             >
-              Contato
+              Agendar Consultoria
             </Link>
           </div>
 

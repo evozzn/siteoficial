@@ -8,3 +8,56 @@
   }
 }
 
+@layer utilities {
+  /* Gradiente animado para background */
+  .gradient-radial {
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(2, 123, 254, 0.15) 0%,
+      rgba(19, 81, 169, 0.1) 30%,
+      transparent 70%
+    );
+  }
+
+  /* Efeito de glow */
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(2, 123, 254, 0.3),
+      0 0 40px rgba(2, 123, 254, 0.2);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px rgba(2, 123, 254, 0.5),
+      0 0 40px rgba(2, 123, 254, 0.3);
+  }
+
+  /* Animação de pulso suave */
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  /* Animação de fade in */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+}
+
