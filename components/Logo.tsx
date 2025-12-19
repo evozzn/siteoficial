@@ -3,13 +3,14 @@ import Link from 'next/link'
 
 interface LogoProps {
   variant?: 'full' | 'icon'
-  size?: 'sm' | 'md' | 'lg' | 'xl'
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   className?: string
   href?: string
 }
 
 // Proporção do SVG: 751:215
 const sizeMap = {
+  xs: { width: 120, height: 34 }, // Proporção 751:215
   sm: { width: 150, height: 43 }, // Proporção 751:215
   md: { width: 200, height: 57 },
   lg: { width: 250, height: 72 },
