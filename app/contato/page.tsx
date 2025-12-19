@@ -77,7 +77,7 @@ export default function ContatoPage() {
                 WhatsApp
               </h3>
               <a
-                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5511999999999'}?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Evozzn`}
+                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5571987497742'}?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Evozzn`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200"

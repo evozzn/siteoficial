@@ -71,7 +71,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5511999999999'}?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Evozzn`}
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5571987497742'}?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Evozzn`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 hover:text-primary transition-colors"

@@ -65,7 +65,7 @@ export default function Home() {
           {/* CTA Principal */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <a
-              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5511999999999'}?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20como%20escalar%20meu%20negócio`}
+              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5571987497742'}?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20como%20escalar%20meu%20negócio`}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative bg-primary hover:bg-secondary text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 glow-primary min-w-[280px] text-center text-lg flex items-center justify-center gap-2"
