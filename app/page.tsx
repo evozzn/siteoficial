@@ -22,6 +22,24 @@ export default function Home() {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
 
+      {/* Logo de fundo com efeito de vidro - centralizada ao texto */}
+      <div className="absolute inset-0 flex items-center justify-center z-0">
+        <div 
+          className="w-full h-full max-w-4xl max-h-4xl opacity-[0.08]"
+          style={{
+            backgroundImage: 'url(/logo/logotipo-fundo.svg)',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            filter: 'blur(1px)',
+            transform: 'translateY(-5%)',
+          }}
+        />
+      </div>
+
+      {/* Camada de vidro para efeito glassmorphism */}
+      <div className="absolute inset-0 bg-background/30 backdrop-blur-[1px] z-[1]" />
+
       {/* Conteúdo principal */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20">
         <div className="text-center max-w-5xl mx-auto animate-fade-in-up">
