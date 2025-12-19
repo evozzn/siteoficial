@@ -27,8 +27,8 @@ export default function Home() {
         <div className="text-center max-w-5xl mx-auto animate-fade-in-up">
           {/* Headline principal */}
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Crescimento previsível orientado por<br />
-            <span className="text-primary glow-text">performance e dados</span>.
+            <span className="block">Crescimento previsível</span>
+            <span className="block text-primary glow-text">orientado por performance e dados.</span>
           </h2>
 
           {/* Texto descritivo */}
