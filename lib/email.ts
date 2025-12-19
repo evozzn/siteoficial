@@ -23,8 +23,8 @@ export async function sendContactEmail(data: EmailData): Promise<{ success: bool
   
   try {
     const result = await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL || 'contato@evozzn.com',
-      to: process.env.RESEND_TO_EMAIL || 'contato@evozzn.com',
+      from: process.env.RESEND_FROM_EMAIL || 'evozzn@gmail.com',
+      to: process.env.RESEND_TO_EMAIL || 'evozzn@gmail.com',
       subject: `Novo contato de ${data.nome}`,
       html: `
         <h2>Novo contato recebido</h2>

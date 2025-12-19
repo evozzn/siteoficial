@@ -51,8 +51,8 @@ async function sendEmail(data: ContactFormData): Promise<{ success: boolean; err
     // Descomente e configure se tiver API key do Resend
     /*
     const RESEND_API_KEY = process.env.RESEND_API_KEY
-    const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'contato@evozzn.com'
-    const RESEND_TO_EMAIL = process.env.RESEND_TO_EMAIL || 'contato@evozzn.com'
+    const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'evozzn@gmail.com'
+    const RESEND_TO_EMAIL = process.env.RESEND_TO_EMAIL || 'evozzn@gmail.com'
 
     if (!RESEND_API_KEY) {
       return { success: false, error: 'Serviço de email não configurado' }
