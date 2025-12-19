@@ -23,16 +23,16 @@ export default function Home() {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
 
       {/* Logo de fundo com efeito de vidro - centralizada ao texto */}
-      <div className="absolute inset-0 flex items-center justify-center z-0">
+      <div className="absolute inset-0 flex items-center justify-center z-0" style={{ top: '80px', bottom: '0' }}>
         <div 
-          className="w-full h-full max-w-4xl max-h-4xl opacity-[0.08]"
+          className="w-full h-full max-w-2xl max-h-2xl opacity-[0.12]"
           style={{
             backgroundImage: 'url(/logo/logotipo-fundo.svg)',
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            filter: 'blur(1px)',
-            transform: 'translateY(-5%)',
+            filter: 'blur(0.5px)',
+            boxShadow: '0 0 60px rgba(2, 123, 254, 0.15), 0 0 120px rgba(2, 123, 254, 0.08)',
           }}
         />
       </div>
