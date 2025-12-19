@@ -27,10 +27,8 @@ export default function Home() {
         <div className="text-center max-w-5xl mx-auto animate-fade-in-up">
           {/* Headline principal */}
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Performance, Growth &{' '}
-            <span className="text-primary glow-text">Inteligência Artificial</span>
-            <br />
-            <span className="text-primary">para marcas de qualquer setor</span>
+            Crescimento previsível orientado por{' '}
+            <span className="text-primary glow-text">performance e dados</span>.
           </h2>
 
           {/* Texto descritivo */}
