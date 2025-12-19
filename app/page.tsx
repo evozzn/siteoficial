@@ -34,11 +34,11 @@ export default function Home() {
           </h2>
 
           {/* Texto descritivo */}
-          <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto mb-4 leading-relaxed">
+          <p className="text-lg md:text-xl text-white max-w-4xl mx-auto mb-4 leading-relaxed">
             Consultoria de marketing de performance orientada por dados e{' '}
             <span className="text-primary font-semibold">Inteligência Artificial</span>.
           </p>
-          <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+          <p className="text-lg md:text-xl text-white max-w-4xl mx-auto mb-12 leading-relaxed">
             <span className="text-primary font-semibold">
               Aceleramos crescimento por aquisição e retenção
             </span>{' '}
