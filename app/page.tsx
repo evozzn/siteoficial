@@ -64,20 +64,32 @@ export default function Home() {
 
           {/* CTA Principal */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <a
+              href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20como%20escalar%20meu%20negócio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-primary hover:bg-secondary text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 glow-primary min-w-[280px] text-center text-lg flex items-center justify-center gap-2"
+            >
+              <svg 
+                className="w-5 h-5" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" 
+                />
+              </svg>
+              <span className="relative z-10">Quero Escalar Agora</span>
+            </a>
             <Link
               href="/home"
-              className="group relative bg-primary hover:bg-secondary text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 glow-primary min-w-[280px] text-center text-lg"
-            >
-              <span className="relative z-10">Quero Escalar Agora</span>
-              <span className="ml-2 group-hover:translate-x-1 inline-block transition-transform">
-                →
-              </span>
-            </Link>
-            <Link
-              href="/contato"
               className="group border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 min-w-[280px] text-center text-lg"
             >
-              Agendar Consultoria
+              Saiba Mais
             </Link>
           </div>
 
