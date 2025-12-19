@@ -29,6 +29,12 @@ Abra [http://localhost:3000](http://localhost:3000) no navegador.
 npm run build
 ```
 
+## Deploy Automático
+
+O projeto está configurado para fazer deploy automático na Vercel a cada push na branch `main`.
+
+Para configurar o deploy automático pela primeira vez, veja a documentação em [docs/DEPLOY_SETUP.md](./docs/DEPLOY_SETUP.md).
+
 ## Configuração de Email
 
 O formulário de contato está configurado para funcionar. Para ativar o envio real de emails:
