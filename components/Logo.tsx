@@ -9,10 +9,10 @@ interface LogoProps {
 }
 
 const sizeMap = {
-  sm: { width: 120, height: 40 },
-  md: { width: 180, height: 60 },
-  lg: { width: 240, height: 80 },
-  xl: { width: 400, height: 133 },
+  sm: { width: 50, height: 50 }, // Logo circular
+  md: { width: 60, height: 60 },
+  lg: { width: 80, height: 80 },
+  xl: { width: 100, height: 100 },
 }
 
 export default function Logo({
@@ -21,22 +21,31 @@ export default function Logo({
   className = '',
   href = '/',
 }: LogoProps) {
-  const logoPath = variant === 'full' ? '/logo/logomarca.svg' : '/logo/logotipo.svg'
+  // Usando o novo logo circular
+  const logoPath = '/logo/logo-novo.png'
   const dimensions = sizeMap[size]
 
   const logoContent = (
-    <Image
-      src={logoPath}
-      alt="Evozzn"
-      width={dimensions.width}
-      height={dimensions.height}
-      priority
-      className={`${className} transition-opacity hover:opacity-90`}
+    <div 
+      className={`${className} transition-opacity hover:opacity-90 overflow-hidden rounded-full`}
       style={{
-        maxWidth: '100%',
-        height: 'auto',
+        width: dimensions.width,
+        height: dimensions.width, // Mantém proporção quadrada para logo circular
+        position: 'relative',
       }}
-    />
+    >
+      <Image
+        src={logoPath}
+        alt="Evozzn"
+        fill
+        priority
+        className="object-cover"
+        style={{
+          objectPosition: 'center 15%', // Foca na parte superior onde está o logo
+          objectFit: 'cover',
+        }}
+      />
+    </div>
   )
 
   if (href) {
@@ -49,4 +58,5 @@ export default function Logo({
 
   return logoContent
 }
+
 
