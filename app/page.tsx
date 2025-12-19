@@ -26,9 +26,9 @@ export default function Home() {
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20">
         <div className="text-center max-w-5xl mx-auto animate-fade-in-up">
           {/* Headline principal */}
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            <span className="block">Crescimento previsível</span>
-            <span className="block text-primary glow-text">orientado por performance e dados.</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style={{ lineHeight: '1.1', wordSpacing: 'normal' }}>
+            <span style={{ display: 'block' }}>Crescimento previsível orientado por</span>
+            <span className="text-primary glow-text" style={{ display: 'block' }}>performance e dados.</span>
           </h2>
 
           {/* Texto descritivo */}
