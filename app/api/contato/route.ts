@@ -44,11 +44,10 @@ function validateContactData(data: ContactFormData): { valid: boolean; errors: s
   }
 }
 
-// Função para enviar email (estrutura preparada para integração)
+// Função para enviar email
+// Para usar Resend em produção, descomente o código abaixo e configure RESEND_API_KEY
 async function sendEmail(data: ContactFormData): Promise<{ success: boolean; error?: string }> {
   try {
-    // Opção 1: Usar Resend (recomendado para produção)
-    // Descomente e configure se tiver API key do Resend
     /*
     const RESEND_API_KEY = process.env.RESEND_API_KEY
     const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'evozzn@gmail.com'
@@ -87,16 +86,15 @@ async function sendEmail(data: ContactFormData): Promise<{ success: boolean; err
     return { success: true }
     */
 
-    // Opção 2: Log para desenvolvimento (substituir por serviço real em produção)
-    console.log('📧 Email que seria enviado:')
-    console.log('De:', data.email)
-    console.log('Nome:', data.nome)
-    console.log('Telefone:', data.telefone)
-    console.log('Mensagem:', data.mensagem)
-    console.log('\n⚠️  Configure RESEND_API_KEY no .env para envio real')
+    // Modo desenvolvimento: log apenas
+    console.log('📧 Email de contato:', {
+      de: data.email,
+      nome: data.nome,
+      telefone: data.telefone,
+      mensagem: data.mensagem,
+    })
+    console.log('⚠️  Configure RESEND_API_KEY no .env para envio real')
 
-    // Simulação de sucesso para desenvolvimento
-    // Em produção, substitua por chamada real ao serviço de email
     return { success: true }
   } catch (error) {
     console.error('Erro ao enviar email:', error)

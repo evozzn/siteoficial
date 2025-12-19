@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 // Estrutura de dados preparada para integração futura
 interface Case {
@@ -248,12 +249,12 @@ export default function CasesPage() {
           Entre em contato e descubra como podemos ajudar seu negócio a alcançar
           resultados estratégicos.
         </p>
-        <a
+        <Link
           href="/contato"
           className="inline-block bg-primary hover:bg-secondary text-white font-semibold px-8 py-4 rounded-lg transition-colors duration-200"
         >
           Fale conosco
-        </a>
+        </Link>
       </section>
     </div>
   )

@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 interface LogoProps {
-  variant?: 'full' | 'icon'
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   className?: string
   href?: string
@@ -10,20 +9,18 @@ interface LogoProps {
 
 // Proporção do SVG: 751:215
 const sizeMap = {
-  xs: { width: 120, height: 34 }, // Proporção 751:215
-  sm: { width: 150, height: 43 }, // Proporção 751:215
+  xs: { width: 120, height: 34 },
+  sm: { width: 150, height: 43 },
   md: { width: 200, height: 57 },
   lg: { width: 250, height: 72 },
   xl: { width: 300, height: 86 },
 }
 
 export default function Logo({
-  variant = 'full',
   size = 'md',
   className = '',
   href = '/',
 }: LogoProps) {
-  // Usando o novo logo SVG
   const logoPath = '/logo/logomarca-nova.svg'
   const dimensions = sizeMap[size]
 
@@ -52,5 +49,3 @@ export default function Logo({
 
   return logoContent
 }
-
-
