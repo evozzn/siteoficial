@@ -39,10 +39,13 @@ export default function Home() {
             <span className="text-primary font-semibold">Inteligência Artificial</span>.
           </p>
           <p className="text-lg md:text-xl text-white max-w-4xl mx-auto mb-12 leading-relaxed">
-            <span className="text-primary font-semibold">
-              Aceleramos crescimento por aquisição e retenção
-            </span>{' '}
-            — de pequenas empresas a grandes marcas.
+            <span className="text-primary font-semibold">Arquitetamos crescimento</span>
+            <br />
+            a partir de decisões precisas
+            <br />
+            em aquisição e retenção. Com atuação consistente em diferentes níveis
+            <br />
+            de maturidade operacional.
           </p>
 
           {/* CTA Principal */}
