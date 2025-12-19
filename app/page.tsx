@@ -22,16 +22,17 @@ export default function Home() {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
 
-      {/* Logo de fundo com efeito de vidro */}
+      {/* Logo de fundo com efeito de vidro - centralizada ao texto */}
       <div className="absolute inset-0 flex items-center justify-center z-0">
         <div 
-          className="w-full h-full max-w-5xl max-h-5xl opacity-[0.08]"
+          className="w-full h-full max-w-4xl max-h-4xl opacity-[0.08]"
           style={{
             backgroundImage: 'url(/logo/logotipo-fundo.svg)',
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             filter: 'blur(1px)',
+            transform: 'translateY(-5%)',
           }}
         />
       </div>
@@ -67,16 +68,29 @@ export default function Home() {
               href="/home"
               className="group relative bg-primary hover:bg-secondary text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 glow-primary min-w-[280px] text-center text-lg"
             >
-              <span className="relative z-10">Quero Escalar Agora</span>
+              <span className="relative z-10">Saiba Mais</span>
               <span className="ml-2 group-hover:translate-x-1 inline-block transition-transform">
                 →
               </span>
             </Link>
             <Link
               href="/contato"
-              className="group border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 min-w-[280px] text-center text-lg"
+              className="group border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 min-w-[280px] text-center text-lg flex items-center justify-center gap-2"
             >
-              Agendar Consultoria
+              <span>Quero escalar agora</span>
+              <svg 
+                className="w-5 h-5 group-hover:translate-y-[-2px] transition-transform" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M13 7l5 5m0 0l-5 5m5-5H6" 
+                />
+              </svg>
             </Link>
           </div>
 
