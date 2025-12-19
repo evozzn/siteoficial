@@ -39,7 +39,8 @@ export default function Home() {
             <span className="text-primary font-semibold">Inteligência Artificial</span>.
           </p>
           <p className="text-lg md:text-xl text-white max-w-4xl mx-auto mb-12 leading-relaxed">
-            <span className="text-primary font-semibold">Arquitetamos crescimento</span> a partir de decisões precisas em aquisição e retenção. Com atuação consistente em diferentes níveis de maturidade operacional.
+            <span className="text-primary font-semibold">Arquitetamos crescimento</span> a partir de decisões precisas em aquisição e retenção,
+            com atuação em diferentes níveis de maturidade operacional.
           </p>
 
           {/* CTA Principal */}
