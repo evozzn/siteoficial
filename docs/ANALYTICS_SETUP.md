@@ -189,3 +189,5 @@ Certifique-se de mencionar o uso do Google Analytics em sua política de privaci
 - [Guia de Eventos GA4](https://developers.google.com/analytics/devguides/collection/ga4/events)
 - [Google Tag Assistant](https://tagassistant.google.com/) - Ferramenta de debug
 
+
+

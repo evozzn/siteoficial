@@ -136,3 +136,5 @@ await transporter.sendMail({
 3. Adicionar notificações (Slack, Discord, etc.)
 4. Implementar banco de dados para histórico (opcional)
 
+
+
