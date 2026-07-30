@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { servicosHome } from '@/lib/servicos'
+import FAQ from '@/components/FAQ'
 
 export const metadata: Metadata = {
   title: 'Serviços',
@@ -90,6 +91,11 @@ export default function ServicosPage() {
             </Link>
           ))}
         </section>
+
+        {/* FAQ */}
+        <div className="mb-16">
+          <FAQ />
+        </div>
 
         {/* CTA */}
         <section className="text-center">

@@ -10,6 +10,7 @@ const navLinks = [
   { href: '/sobre', label: 'Sobre' },
   { href: '/cases', label: 'Cases' },
   { href: '/portfolio', label: 'Portfólio' },
+  { href: '/servicos#faq', label: 'FAQ' },
 ]
 
 export default function Header() {
