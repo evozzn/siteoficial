@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
-// Estrutura de dados preparada para integração futura
 interface Case {
   id: string
   cliente: string
@@ -14,120 +14,91 @@ interface Case {
     label: string
     valor: string
   }[]
-  logo?: string // URL do logo do cliente
-  imagem?: string // URL da imagem do case
+  logo?: string
 }
 
-// Dados mockados para estrutura visual (serão substituídos pelos dados reais)
-const casesMock: Case[] = [
+// Dados reais de clientes ativos. Apenas o case de criativos para Meta Ads
+// é anônimo, por confidencialidade do parceiro — os demais números são reais
+// e identificados.
+const cases: Case[] = [
   {
     id: '1',
-    cliente: 'Cliente Exemplo 1',
-    titulo: 'Estratégia Digital Completa',
+    cliente: 'SINTER-MT',
+    titulo: 'Primeiro mês de gestão',
     descricao:
-      'Desenvolvimento de estratégia digital integrada que resultou em crescimento significativo de tráfego e conversões.',
-    categoria: 'Estratégia Digital',
+      'Perfil parado antes da Evozzn. No primeiro mês de gestão, sem tráfego pago: alcance e visualizações dispararam, cliques no link da bio triplicaram.',
+    categoria: 'Social Media',
+    logo: '/cases/sinter-mt-logo.png',
     resultados: [
-      { label: 'Aumento de Tráfego', valor: '+250%' },
-      { label: 'Taxa de Conversão', valor: '+180%' },
-      { label: 'ROI', valor: '450%' },
+      { label: 'Alcance', valor: '+1.279%' },
+      { label: 'Visualizações', valor: '+447%' },
+      { label: 'Cliques no link', valor: '+200%' },
     ],
   },
   {
     id: '2',
-    cliente: 'Cliente Exemplo 2',
-    titulo: 'Campanha Performance Marketing',
+    cliente: 'Luiz Guedes · Treinador Online',
+    titulo: 'Primeiro mês de gestão',
     descricao:
-      'Otimização de campanhas pagas com foco em ROI, alcançando resultados excepcionais em custo por aquisição.',
-    categoria: 'Performance Marketing',
+      'Perfil sem conteúdo consistente antes da Evozzn. No primeiro mês de gestão, sem tráfego pago: alcance quase dez vezes maior e cliques no link da bio saltaram.',
+    categoria: 'Social Media',
+    logo: '/cases/luiz-guedes-logo.jpg',
     resultados: [
-      { label: 'Redução de CPA', valor: '-65%' },
-      { label: 'Aumento de Vendas', valor: '+320%' },
-      { label: 'ROAS', valor: '8.5x' },
+      { label: 'Alcance', valor: '+950%' },
+      { label: 'Visualizações', valor: '+318%' },
+      { label: 'Cliques no link', valor: '+650%' },
     ],
   },
   {
     id: '3',
-    cliente: 'Cliente Exemplo 3',
-    titulo: 'Rebranding Completo',
+    cliente: 'Parceria de Tráfego Pago · Criativos',
+    titulo: 'Criativos para 3 contas de um parceiro',
     descricao:
-      'Reformulação completa da identidade visual e posicionamento de marca, fortalecendo a presença no mercado.',
-    categoria: 'Branding',
+      'Uma agência de tráfego pago contratou a Evozzn para produzir os criativos em vídeo de três contas, focados em retenção e conversão. O tráfego foi rodado pelo parceiro. Não é um serviço da Evozzn. Resultado real, documentado nos relatórios de performance das contas atendidas.',
+    categoria: 'Criativos para Meta Ads',
     resultados: [
-      { label: 'Reconhecimento de Marca', valor: '+190%' },
-      { label: 'Engajamento', valor: '+275%' },
-      { label: 'Leads Qualificados', valor: '+210%' },
+      { label: 'Faturamento', valor: 'R$ 3,28 mi+' },
+      { label: 'Contas atendidas', valor: '3' },
+      { label: 'Duração da parceria', valor: '8 meses' },
     ],
   },
   {
     id: '4',
-    cliente: 'Cliente Exemplo 4',
-    titulo: 'SEO & Content Marketing',
+    cliente: 'Diogo Esteves91 · YouTube',
+    titulo: 'Parceria desde setembro de 2025',
     descricao:
-      'Estratégia de conteúdo e otimização SEO que posicionou a marca como autoridade no segmento.',
-    categoria: 'SEO & Conteúdo',
+      'Canal de futebol no YouTube. A Evozzn assumiu a edição completa dos vídeos: roteiro, corte, ritmo e thumbnails.',
+    categoria: 'YouTube',
+    logo: '/cases/diogo-esteves-foto.jpg',
     resultados: [
-      { label: 'Tráfego Orgânico', valor: '+420%' },
-      { label: 'Posições Top 10', valor: '+85' },
-      { label: 'Backlinks', valor: '+1.2k' },
-    ],
-  },
-  {
-    id: '5',
-    cliente: 'Cliente Exemplo 5',
-    titulo: 'Social Media Strategy',
-    descricao:
-      'Gestão estratégica de redes sociais com crescimento orgânico e aumento significativo de engajamento.',
-    categoria: 'Social Media',
-    resultados: [
-      { label: 'Seguidores', valor: '+580%' },
-      { label: 'Alcance Médio', valor: '+340%' },
-      { label: 'Taxa de Engajamento', valor: '+195%' },
-    ],
-  },
-  {
-    id: '6',
-    cliente: 'Cliente Exemplo 6',
-    titulo: 'E-commerce Growth',
-    descricao:
-      'Otimização completa de e-commerce com foco em conversão e experiência do usuário.',
-    categoria: 'E-commerce',
-    resultados: [
-      { label: 'Vendas Online', valor: '+480%' },
-      { label: 'Taxa de Conversão', valor: '+220%' },
-      { label: 'Ticket Médio', valor: '+35%' },
+      { label: 'Visualizações', valor: '+500 mil' },
+      { label: 'Comentários', valor: '+3 mil' },
+      { label: 'Vídeos editados', valor: '52' },
     ],
   },
 ]
 
-const categorias = [
-  'Todos',
-  'Estratégia Digital',
-  'Performance Marketing',
-  'Branding',
-  'SEO & Conteúdo',
-  'Social Media',
-  'E-commerce',
-]
+const categorias = ['Todos', 'Social Media', 'Criativos para Meta Ads', 'YouTube']
 
 export default function CasesPage() {
   const [categoriaSelecionada, setCategoriaSelecionada] = useState('Todos')
 
   const casesFiltrados =
     categoriaSelecionada === 'Todos'
-      ? casesMock
-      : casesMock.filter((caseItem) => caseItem.categoria === categoriaSelecionada)
+      ? cases
+      : cases.filter((caseItem) => caseItem.categoria === categoriaSelecionada)
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       {/* Hero */}
-      <section className="text-center mb-16">
+      <section className="text-center mb-12">
         <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
           Nossos <span className="text-primary">Cases</span>
         </h1>
         <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-          Conheça alguns dos projetos que desenvolvemos e os resultados que
-          alcançamos para nossos clientes.
+          Resultados reais de clientes ativos. Os números não mudam. Só
+          preservamos a identidade quando a confidencialidade é do parceiro,
+          não nossa.
         </p>
       </section>
 
@@ -151,85 +122,52 @@ export default function CasesPage() {
       </section>
 
       {/* Grid de Cases */}
-      <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <section className="grid md:grid-cols-2 gap-8 mb-16">
         {casesFiltrados.map((caseItem) => (
           <div
             key={caseItem.id}
-            className="bg-gray-900/50 rounded-lg border border-gray-800 hover:border-primary/50 transition-all duration-300 overflow-hidden group"
+            className="flex flex-col h-full bg-gray-900/50 rounded-lg border border-gray-800 hover:border-primary/50 transition-all duration-300 overflow-hidden"
           >
-            {/* Imagem/Thumbnail do Case */}
-            <div className="relative h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center overflow-hidden">
-              {caseItem.imagem ? (
-                <img
-                  src={caseItem.imagem}
-                  alt={caseItem.titulo}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              ) : (
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 bg-primary/20 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                    <svg
-                      className="w-10 h-10 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                      />
-                    </svg>
-                  </div>
-                  <p className="text-gray-500 text-sm">Imagem do projeto</p>
-                </div>
-              )}
-            </div>
-
-            {/* Logo do Cliente */}
-            <div className="px-6 pt-6 pb-4">
+            <div className="p-6">
               <div className="flex items-center gap-3 mb-4">
                 {caseItem.logo ? (
-                  <img
+                  <Image
                     src={caseItem.logo}
                     alt={caseItem.cliente}
-                    className="h-10 w-auto object-contain"
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 rounded-full object-cover border border-gray-800 flex-shrink-0"
                   />
                 ) : (
-                  <div className="h-10 w-24 bg-gray-800 rounded flex items-center justify-center">
-                    <span className="text-gray-600 text-xs font-medium">
-                      {caseItem.cliente}
-                    </span>
+                  <div
+                    className="h-10 w-10 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center flex-shrink-0"
+                    aria-label="Cliente anônimo por confidencialidade"
+                  >
+                    <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                    </svg>
                   </div>
                 )}
+                <span className="text-gray-200 text-sm font-semibold">
+                  {caseItem.cliente}
+                </span>
               </div>
 
-              {/* Categoria */}
               <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-3">
                 {caseItem.categoria}
               </span>
 
-              {/* Título */}
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                {caseItem.titulo}
-              </h3>
-
-              {/* Descrição */}
-              <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                {caseItem.descricao}
-              </p>
+              <p className="text-gray-400 text-sm mb-4">{caseItem.descricao}</p>
             </div>
 
-            {/* Resultados */}
-            <div className="px-6 pb-6 pt-4 border-t border-gray-800">
+            <div className="mt-auto px-6 pb-6 pt-4 border-t border-gray-800">
               <div className="grid grid-cols-3 gap-4">
                 {caseItem.resultados.map((resultado, index) => (
                   <div key={index} className="text-center">
                     <div className="text-lg font-bold text-primary mb-1">
                       {resultado.valor}
                     </div>
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-gray-400">
                       {resultado.label}
                     </div>
                   </div>
@@ -241,19 +179,32 @@ export default function CasesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary/10 to-secondary/10 p-12 rounded-lg text-center border border-primary/20">
+      <section className="text-center">
         <h2 className="text-3xl font-bold text-white mb-4">
           Quer resultados como estes?
         </h2>
-        <p className="text-gray-400 mb-6">
-          Entre em contato e descubra como podemos ajudar seu negócio a alcançar
-          resultados estratégicos.
+        <p className="text-gray-400 mb-8">
+          Chame nossos especialistas e montaremos um plano personalizado pra
+          você.
         </p>
         <Link
           href="/contato"
-          className="inline-block bg-primary hover:bg-secondary text-white font-semibold px-8 py-4 rounded-lg transition-colors duration-200"
+          className="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 glow-primary uppercase text-sm tracking-wide"
         >
-          Fale conosco
+          Falar com especialista
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+            />
+          </svg>
         </Link>
       </section>
     </div>

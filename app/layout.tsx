@@ -10,19 +10,18 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   metadataBase: new URL('https://evozzn.com'),
   title: {
-    default: 'Evozzn - Agência de Marketing Premium',
+    default: 'Evozzn - Conteúdo e Posicionamento Digital',
     template: '%s | Evozzn',
   },
   description:
-    'Agência de marketing premium especializada em estratégias digitais, performance marketing e branding. Transformamos ideias em resultados estratégicos.',
+    'Agência de conteúdo e posicionamento digital. Social media, produção de vídeo e web design, com processo de agência e atendimento próximo.',
   keywords: [
-    'agência de marketing',
-    'marketing digital',
-    'performance marketing',
-    'branding',
-    'SEO',
-    'social media',
-    'estratégia digital',
+    'agência de social media',
+    'gestão de redes sociais',
+    'produção de vídeo',
+    'edição de vídeo',
+    'web design',
+    'posicionamento digital',
   ],
   authors: [{ name: 'Evozzn' }],
   creator: 'Evozzn',
@@ -31,15 +30,15 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     url: 'https://evozzn.com',
     siteName: 'Evozzn',
-    title: 'Evozzn - Agência de Marketing Premium',
+    title: 'Evozzn - Conteúdo e Posicionamento Digital',
     description:
-      'Agência de marketing premium especializada em estratégias digitais, performance marketing e branding.',
+      'Agência de conteúdo e posicionamento digital. Social media, produção de vídeo e web design.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Evozzn - Agência de Marketing Premium',
+    title: 'Evozzn - Conteúdo e Posicionamento Digital',
     description:
-      'Agência de marketing premium especializada em estratégias digitais, performance marketing e branding.',
+      'Agência de conteúdo e posicionamento digital. Social media, produção de vídeo e web design.',
   },
   robots: {
     index: true,

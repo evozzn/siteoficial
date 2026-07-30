@@ -2,9 +2,10 @@ import { NextRequest, NextResponse } from 'next/server'
 
 interface ContactFormData {
   nome: string
-  email: string
-  telefone: string
-  mensagem: string
+  empresa: string
+  whatsapp: string
+  instagram?: string
+  projeto?: string
 }
 
 // Validação server-side
@@ -15,27 +16,18 @@ function validateContactData(data: ContactFormData): { valid: boolean; errors: s
     errors.push('Nome deve ter pelo menos 2 caracteres')
   }
 
-  if (!data.email) {
-    errors.push('Email é obrigatório')
-  } else {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(data.email)) {
-      errors.push('Email inválido')
-    }
+  if (!data.empresa || data.empresa.trim().length < 2) {
+    errors.push('Empresa deve ter pelo menos 2 caracteres')
   }
 
-  if (!data.telefone) {
-    errors.push('Telefone é obrigatório')
+  if (!data.whatsapp) {
+    errors.push('WhatsApp é obrigatório')
   } else {
     // Remove caracteres não numéricos para validação
-    const cleanPhone = data.telefone.replace(/\D/g, '')
+    const cleanPhone = data.whatsapp.replace(/\D/g, '')
     if (cleanPhone.length < 10 || cleanPhone.length > 11) {
-      errors.push('Telefone inválido. Use o formato (00) 00000-0000')
+      errors.push('WhatsApp inválido. Use o formato (00) 00000-0000')
     }
-  }
-
-  if (!data.mensagem || data.mensagem.trim().length < 10) {
-    errors.push('Mensagem deve ter pelo menos 10 caracteres')
   }
 
   return {
@@ -66,14 +58,15 @@ async function sendEmail(data: ContactFormData): Promise<{ success: boolean; err
       body: JSON.stringify({
         from: RESEND_FROM_EMAIL,
         to: RESEND_TO_EMAIL,
-        subject: `Novo contato de ${data.nome}`,
+        subject: `Novo orçamento de ${data.nome}`,
         html: `
-          <h2>Novo contato recebido</h2>
+          <h2>Novo pedido de orçamento</h2>
           <p><strong>Nome:</strong> ${data.nome}</p>
-          <p><strong>Email:</strong> ${data.email}</p>
-          <p><strong>Telefone:</strong> ${data.telefone}</p>
-          <p><strong>Mensagem:</strong></p>
-          <p>${data.mensagem.replace(/\n/g, '<br>')}</p>
+          <p><strong>Empresa:</strong> ${data.empresa}</p>
+          <p><strong>WhatsApp:</strong> ${data.whatsapp}</p>
+          <p><strong>Instagram:</strong> ${data.instagram || 'Não informado'}</p>
+          <p><strong>Projeto:</strong></p>
+          <p>${(data.projeto || '').replace(/\n/g, '<br>')}</p>
         `,
       }),
     })
@@ -87,11 +80,12 @@ async function sendEmail(data: ContactFormData): Promise<{ success: boolean; err
     */
 
     // Modo desenvolvimento: log apenas
-    console.log('📧 Email de contato:', {
-      de: data.email,
+    console.log('📧 Pedido de orçamento:', {
       nome: data.nome,
-      telefone: data.telefone,
-      mensagem: data.mensagem,
+      empresa: data.empresa,
+      whatsapp: data.whatsapp,
+      instagram: data.instagram,
+      projeto: data.projeto,
     })
     console.log('⚠️  Configure RESEND_API_KEY no .env para envio real')
 
@@ -137,7 +131,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: true,
-        message: 'Mensagem enviada com sucesso!',
+        message: 'Solicitação enviada com sucesso!',
       },
       { status: 200 }
     )
@@ -160,4 +154,3 @@ export async function GET() {
     { status: 405 }
   )
 }
-

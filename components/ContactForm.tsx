@@ -5,37 +5,29 @@ import { analytics } from '@/lib/analytics'
 
 interface FormErrors {
   nome?: string
-  email?: string
-  telefone?: string
-  mensagem?: string
+  empresa?: string
+  whatsapp?: string
+  geral?: string
 }
 
 export default function ContactForm() {
   const [nome, setNome] = useState('')
-  const [email, setEmail] = useState('')
-  const [telefone, setTelefone] = useState('')
-  const [mensagem, setMensagem] = useState('')
+  const [empresa, setEmpresa] = useState('')
+  const [whatsapp, setWhatsapp] = useState('')
+  const [instagram, setInstagram] = useState('')
+  const [projeto, setProjeto] = useState('')
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
 
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
-  }
-
   const validatePhone = (phone: string): boolean => {
-    // Remove caracteres não numéricos
     const cleanPhone = phone.replace(/\D/g, '')
-    // Valida telefone brasileiro (10 ou 11 dígitos)
     return cleanPhone.length >= 10 && cleanPhone.length <= 11
   }
 
   const formatPhone = (value: string): string => {
-    // Remove tudo que não é dígito
     const numbers = value.replace(/\D/g, '')
-    
-    // Aplica máscara: (00) 00000-0000 ou (00) 0000-0000
+
     if (numbers.length <= 2) {
       return numbers
     } else if (numbers.length <= 6) {
@@ -50,32 +42,22 @@ export default function ContactForm() {
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {}
 
-    // Validação do nome
     if (!nome.trim()) {
       newErrors.nome = 'Nome é obrigatório'
     } else if (nome.trim().length < 2) {
       newErrors.nome = 'Nome deve ter pelo menos 2 caracteres'
     }
 
-    // Validação do email
-    if (!email.trim()) {
-      newErrors.email = 'Email é obrigatório'
-    } else if (!validateEmail(email)) {
-      newErrors.email = 'Email inválido'
+    if (!empresa.trim()) {
+      newErrors.empresa = 'Empresa é obrigatória'
+    } else if (empresa.trim().length < 2) {
+      newErrors.empresa = 'Empresa deve ter pelo menos 2 caracteres'
     }
 
-    // Validação do telefone
-    if (!telefone.trim()) {
-      newErrors.telefone = 'Telefone é obrigatório'
-    } else if (!validatePhone(telefone)) {
-      newErrors.telefone = 'Telefone inválido. Use o formato (00) 00000-0000'
-    }
-
-    // Validação da mensagem
-    if (!mensagem.trim()) {
-      newErrors.mensagem = 'Mensagem é obrigatória'
-    } else if (mensagem.trim().length < 10) {
-      newErrors.mensagem = 'Mensagem deve ter pelo menos 10 caracteres'
+    if (!whatsapp.trim()) {
+      newErrors.whatsapp = 'WhatsApp é obrigatório'
+    } else if (!validatePhone(whatsapp)) {
+      newErrors.whatsapp = 'WhatsApp inválido. Use o formato (00) 00000-0000'
     }
 
     setErrors(newErrors)
@@ -100,55 +82,51 @@ export default function ContactForm() {
         },
         body: JSON.stringify({
           nome: nome.trim(),
-          email: email.trim(),
-          telefone: telefone.trim(),
-          mensagem: mensagem.trim(),
+          empresa: empresa.trim(),
+          whatsapp: whatsapp.trim(),
+          instagram: instagram.trim(),
+          projeto: projeto.trim(),
         }),
       })
 
       const data = await response.json()
 
       if (!response.ok) {
-        // Erros de validação do servidor
         if (data.errors && Array.isArray(data.errors)) {
           const serverErrors: FormErrors = {}
           data.errors.forEach((error: string) => {
             if (error.includes('Nome')) serverErrors.nome = error
-            else if (error.includes('Email')) serverErrors.email = error
-            else if (error.includes('Telefone')) serverErrors.telefone = error
-            else if (error.includes('Mensagem')) serverErrors.mensagem = error
+            else if (error.includes('Empresa')) serverErrors.empresa = error
+            else if (error.includes('WhatsApp')) serverErrors.whatsapp = error
           })
           setErrors(serverErrors)
         } else {
-          // Erro genérico
           setErrors({
-            mensagem: data.error || 'Erro ao enviar mensagem. Tente novamente.',
+            geral: data.error || 'Erro ao enviar mensagem. Tente novamente.',
           })
         }
         setIsSubmitting(false)
         return
       }
 
-      // Sucesso
       setSubmitSuccess(true)
-      
-      // Track evento de conversão no Google Analytics
+
       analytics.contactFormSubmit()
-      
+
       setNome('')
-      setEmail('')
-      setTelefone('')
-      setMensagem('')
+      setEmpresa('')
+      setWhatsapp('')
+      setInstagram('')
+      setProjeto('')
       setErrors({})
 
-      // Resetar mensagem de sucesso após 5 segundos
       setTimeout(() => {
         setSubmitSuccess(false)
       }, 5000)
     } catch (error) {
       console.error('Erro ao enviar formulário:', error)
       setErrors({
-        mensagem: 'Erro de conexão. Verifique sua internet e tente novamente.',
+        geral: 'Erro de conexão. Verifique sua internet e tente novamente.',
       })
     } finally {
       setIsSubmitting(false)
@@ -160,7 +138,7 @@ export default function ContactForm() {
       {/* Nome */}
       <div>
         <label htmlFor="nome" className="block text-gray-300 mb-2">
-          Nome <span className="text-red-500">*</span>
+          Nome <span className="text-primary">*</span>
         </label>
         <input
           type="text"
@@ -184,118 +162,134 @@ export default function ContactForm() {
         )}
       </div>
 
-      {/* Email */}
+      {/* Empresa */}
       <div>
-        <label htmlFor="email" className="block text-gray-300 mb-2">
-          Email <span className="text-red-500">*</span>
+        <label htmlFor="empresa" className="block text-gray-300 mb-2">
+          Empresa <span className="text-primary">*</span>
         </label>
         <input
-          type="email"
-          id="email"
-          value={email}
+          type="text"
+          id="empresa"
+          value={empresa}
           onChange={(e) => {
-            setEmail(e.target.value)
-            if (errors.email) {
-              setErrors({ ...errors, email: undefined })
+            setEmpresa(e.target.value)
+            if (errors.empresa) {
+              setErrors({ ...errors, empresa: undefined })
             }
           }}
           className={`w-full bg-gray-800 border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 transition-colors ${
-            errors.email
+            errors.empresa
               ? 'border-red-500 focus:ring-red-500'
               : 'border-gray-700 focus:border-primary focus:ring-primary'
           }`}
-          placeholder="seu@email.com"
+          placeholder="Nome da sua empresa"
         />
-        {errors.email && (
-          <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+        {errors.empresa && (
+          <p className="mt-1 text-sm text-red-500">{errors.empresa}</p>
         )}
       </div>
 
-      {/* Telefone */}
+      {/* WhatsApp */}
       <div>
-        <label htmlFor="telefone" className="block text-gray-300 mb-2">
-          Telefone <span className="text-red-500">*</span>
+        <label htmlFor="whatsapp" className="block text-gray-300 mb-2">
+          WhatsApp <span className="text-primary">*</span>
         </label>
         <input
           type="tel"
-          id="telefone"
-          value={telefone}
+          id="whatsapp"
+          value={whatsapp}
           onChange={(e) => {
             const formatted = formatPhone(e.target.value)
-            setTelefone(formatted)
-            if (errors.telefone) {
-              setErrors({ ...errors, telefone: undefined })
+            setWhatsapp(formatted)
+            if (errors.whatsapp) {
+              setErrors({ ...errors, whatsapp: undefined })
             }
           }}
           className={`w-full bg-gray-800 border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 transition-colors ${
-            errors.telefone
+            errors.whatsapp
               ? 'border-red-500 focus:ring-red-500'
               : 'border-gray-700 focus:border-primary focus:ring-primary'
           }`}
           placeholder="(00) 00000-0000"
           maxLength={15}
         />
-        {errors.telefone && (
-          <p className="mt-1 text-sm text-red-500">{errors.telefone}</p>
+        {errors.whatsapp && (
+          <p className="mt-1 text-sm text-red-500">{errors.whatsapp}</p>
         )}
       </div>
 
-      {/* Mensagem */}
+      {/* Instagram */}
       <div>
-        <label htmlFor="mensagem" className="block text-gray-300 mb-2">
-          Mensagem <span className="text-red-500">*</span>
+        <label htmlFor="instagram" className="block text-gray-300 mb-2">
+          Instagram
+        </label>
+        <input
+          type="text"
+          id="instagram"
+          value={instagram}
+          onChange={(e) => setInstagram(e.target.value)}
+          className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:border-primary focus:ring-primary transition-colors"
+          placeholder="@seuperfil"
+        />
+      </div>
+
+      {/* Projeto */}
+      <div>
+        <label htmlFor="projeto" className="block text-gray-300 mb-2">
+          Conte um pouco sobre o seu projeto
         </label>
         <textarea
-          id="mensagem"
-          value={mensagem}
-          onChange={(e) => {
-            setMensagem(e.target.value)
-            if (errors.mensagem) {
-              setErrors({ ...errors, mensagem: undefined })
-            }
-          }}
+          id="projeto"
+          value={projeto}
+          onChange={(e) => setProjeto(e.target.value)}
           rows={4}
-          className={`w-full bg-gray-800 border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 transition-colors resize-none ${
-            errors.mensagem
-              ? 'border-red-500 focus:ring-red-500'
-              : 'border-gray-700 focus:border-primary focus:ring-primary'
-          }`}
-          placeholder="Conte-nos sobre seu projeto ou dúvida..."
+          className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:border-primary focus:ring-primary transition-colors resize-none"
+          placeholder="Fica à vontade pra contar o que precisa"
         />
-        {errors.mensagem && (
-          <p className="mt-1 text-sm text-red-500">{errors.mensagem}</p>
-        )}
       </div>
 
       {/* Mensagem de sucesso */}
       {submitSuccess && (
         <div className="bg-green-500/10 border border-green-500/50 text-green-400 p-4 rounded-lg">
           <p className="font-medium">
-            Mensagem enviada com sucesso! Entraremos em contato em breve.
+            Recebemos seu contato. A gente responde em breve.
           </p>
         </div>
       )}
+
+      <p className="text-xs text-gray-500">
+        Seus dados são usados só pra retornar seu contato.
+      </p>
 
       {/* Botão de envio */}
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`w-full font-semibold px-8 py-4 rounded-lg transition-colors duration-200 ${
+        className={`w-full inline-flex items-center justify-center gap-2 font-bold px-8 py-4 rounded-full transition-all duration-300 uppercase text-sm tracking-wide ${
           isSubmitting
             ? 'bg-gray-700 text-gray-400 cursor-not-allowed'
-            : 'bg-primary hover:bg-secondary text-white'
+            : 'bg-primary hover:bg-secondary text-white transform hover:scale-105 glow-primary'
         }`}
       >
-        {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
+        {isSubmitting ? 'Enviando...' : 'Solicitar orçamento'}
+        {!isSubmitting && (
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+            />
+          </svg>
+        )}
       </button>
 
       {/* Mensagem de erro geral */}
-      {errors.mensagem && !errors.nome && !errors.email && !errors.telefone && (
+      {errors.geral && (
         <div className="bg-red-500/10 border border-red-500/50 text-red-400 p-4 rounded-lg">
-          <p className="text-sm">{errors.mensagem}</p>
+          <p className="text-sm">{errors.geral}</p>
         </div>
       )}
     </form>
   )
 }
-

@@ -9,7 +9,8 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold text-primary mb-4">Evozzn</h3>
             <p className="text-gray-400 text-sm">
-              Agência de marketing premium especializada em resultados estratégicos.
+              Agência de conteúdo e posicionamento digital. Social media,
+              produção de vídeo e web design.
             </p>
           </div>
 
@@ -19,7 +20,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/home"
+                  href="/"
                   className="text-gray-400 hover:text-primary transition-colors text-sm"
                 >
                   Início
@@ -66,7 +67,7 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400 text-sm">
               <li>
                 <a href="mailto:evozzn@gmail.com" className="hover:text-primary transition-colors">
-                  Email: evozzn@gmail.com
+                  evozzn@gmail.com
                 </a>
               </li>
               <li>
@@ -109,7 +110,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-gray-800">
-          <p className="text-center text-gray-500 text-sm">
+          <p className="text-center text-gray-400 text-sm">
             © {new Date().getFullYear()} Evozzn. Todos os direitos reservados.
           </p>
         </div>
