@@ -171,19 +171,32 @@ export default function PortfolioPage() {
       )}
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary/10 to-secondary/10 p-12 rounded-lg text-center border border-primary/20">
-        <h2 className="text-3xl font-bold text-white mb-4">
-          Quer um trabalho assim pro seu negócio?
+      <section className="text-center">
+        <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+          Quer resultados como estes?
         </h2>
-        <p className="text-gray-400 mb-6">
-          Fala com a gente e vê como funciona nosso processo, desde o
-          primeiro mês.
+        <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+          Chame nossos especialistas e montaremos um plano personalizado pra
+          você.
         </p>
         <Link
           href="/contato"
-          className="inline-block bg-primary hover:bg-secondary text-white font-semibold px-8 py-4 rounded-lg transition-colors duration-200"
+          className="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 glow-primary uppercase text-sm tracking-wide"
         >
-          Solicitar orçamento
+          Falar com especialista
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+            />
+          </svg>
         </Link>
       </section>
     </div>
