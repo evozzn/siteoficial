@@ -73,7 +73,7 @@ async function sendEmail(data: ContactFormData): Promise<{ success: boolean; err
           <p><strong>Nome:</strong> ${data.nome}</p>
           <p><strong>Empresa:</strong> ${data.empresa}</p>
           <p><strong>WhatsApp:</strong> ${data.whatsapp}</p>
-          <p><strong>Instagram:</strong> ${data.instagram || 'Não informado'}</p>
+          <p><strong>Instagram:</strong> ${data.instagram ? `@${data.instagram}` : 'Não informado'}</p>
           <p><strong>Projeto:</strong></p>
           <p>${(data.projeto || 'Não informado').replace(/\n/g, '<br>')}</p>
         `,
