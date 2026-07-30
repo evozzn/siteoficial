@@ -37,11 +37,28 @@ const perguntas = [
   },
 ]
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: perguntas.map((item) => ({
+    '@type': 'Question',
+    name: item.pergunta,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.resposta,
+    },
+  })),
+}
+
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
     <section id="faq" className="scroll-mt-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="flex items-end gap-3 mb-10">
         <h2 className="text-4xl md:text-5xl font-black text-white">FAQ</h2>
         <svg

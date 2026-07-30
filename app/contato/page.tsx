@@ -11,6 +11,9 @@ export const metadata: Metadata = {
       'Solicite um orçamento com a Evozzn. Social media, produção de vídeo e web design, com processo de agência.',
     url: '/contato',
   },
+  alternates: {
+    canonical: '/contato',
+  },
 }
 
 export default function ContatoPage() {

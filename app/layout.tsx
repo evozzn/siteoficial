@@ -44,6 +44,27 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: '/',
+  },
+}
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Evozzn',
+  description:
+    'Agência de conteúdo e posicionamento digital. Social media, produção de vídeo e web design, com processo de agência e atendimento próximo.',
+  url: 'https://evozzn.com',
+  logo: 'https://evozzn.com/logo/logomarca-nova.svg',
+  image: 'https://evozzn.com/logo/logomarca-nova.svg',
+  email: 'evozzn@gmail.com',
+  areaServed: 'BR',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'BR',
+  },
+  sameAs: ['https://instagram.com/evozzn'],
 }
 
 export default function RootLayout({
@@ -54,6 +75,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <GoogleAnalytics />
         <Header />
         <main className="flex-1">{children}</main>

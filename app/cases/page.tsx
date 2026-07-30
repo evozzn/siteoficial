@@ -26,7 +26,7 @@ const cases: Case[] = [
     cliente: 'SINTER-MT',
     titulo: 'Primeiro mês de gestão',
     descricao:
-      'Perfil parado antes da Evozzn. No primeiro mês de gestão, sem tráfego pago: alcance e visualizações dispararam, cliques no link da bio triplicaram.',
+      'Perfil parado antes da Evozzn. No primeiro mês de gestão, alcance e visualizações dispararam, cliques no link da bio triplicaram.',
     categoria: 'Social Media',
     logo: '/cases/sinter-mt-logo.png',
     resultados: [
@@ -40,7 +40,7 @@ const cases: Case[] = [
     cliente: 'Luiz Guedes · Treinador Online',
     titulo: 'Primeiro mês de gestão',
     descricao:
-      'Perfil sem conteúdo consistente antes da Evozzn. No primeiro mês de gestão, sem tráfego pago: alcance quase dez vezes maior e cliques no link da bio saltaram.',
+      'Perfil sem conteúdo consistente antes da Evozzn. No primeiro mês de gestão, alcance quase dez vezes maior e cliques no link da bio saltaram.',
     categoria: 'Social Media',
     logo: '/cases/luiz-guedes-logo.jpg',
     resultados: [
@@ -51,10 +51,10 @@ const cases: Case[] = [
   },
   {
     id: '3',
-    cliente: 'Parceria de Tráfego Pago · Criativos',
+    cliente: 'Parceria de Mídia Paga · Criativos',
     titulo: 'Criativos para 3 contas de um parceiro',
     descricao:
-      'Uma agência de tráfego pago contratou a Evozzn para produzir os criativos em vídeo de três contas, focados em retenção e conversão. O tráfego foi rodado pelo parceiro. Não é um serviço da Evozzn. Resultado real, documentado nos relatórios de performance das contas atendidas.',
+      'Uma agência de mídia paga contratou a Evozzn para produzir os criativos em vídeo de três contas, focados em retenção e conversão. A campanha foi conduzida pelo parceiro. Não é um serviço da Evozzn. Resultado real, documentado nos relatórios de performance das contas atendidas.',
     categoria: 'Criativos para Meta Ads',
     resultados: [
       { label: 'Faturamento', valor: 'R$ 3,28 mi+' },

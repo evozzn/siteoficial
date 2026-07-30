@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { servicos } from '@/lib/servicos'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://evozzn.com'
@@ -30,6 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/portfolio`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/contato`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
@@ -37,5 +44,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  return routes
+  // Rotas dinâmicas: uma por serviço individual
+  const rotasServicos = servicos.map((servico) => ({
+    url: `${baseUrl}/servicos/${servico.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  return [...routes, ...rotasServicos]
 }

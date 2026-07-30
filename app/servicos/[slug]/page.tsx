@@ -53,6 +53,9 @@ export function generateMetadata({
       description: servico.resumo,
       url: `/servicos/${servico.slug}`,
     },
+    alternates: {
+      canonical: `/servicos/${servico.slug}`,
+    },
   }
 }
 

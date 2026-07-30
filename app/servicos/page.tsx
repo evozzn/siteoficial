@@ -6,12 +6,15 @@ import FAQ from '@/components/FAQ'
 export const metadata: Metadata = {
   title: 'Serviços',
   description:
-    'Social media, produção e edição de vídeo, UX/UI e web design. Processo de agência, sem tráfego pago.',
+    'Social media, produção e edição de vídeo, UX/UI e web design. Processo de agência e atendimento próximo.',
   openGraph: {
     title: 'Nossos Serviços - Evozzn',
     description:
       'Social media, produção e edição de vídeo, UX/UI e web design. Processo de agência.',
     url: '/servicos',
+  },
+  alternates: {
+    canonical: '/servicos',
   },
 }
 
@@ -31,8 +34,8 @@ export default function ServicosPage() {
             <span className="text-primary">pro seu crescimento</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl">
-            Da estratégia à execução, com processo de agência, atendimento
-            próximo e sem tráfego pago.
+            Da estratégia à execução, com processo de agência e atendimento
+            próximo.
           </p>
         </section>
 

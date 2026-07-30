@@ -13,6 +13,9 @@ export const metadata: Metadata = {
       'A Evozzn é uma agência de conteúdo e posicionamento digital, com processo de agência e atendimento próximo.',
     url: '/sobre',
   },
+  alternates: {
+    canonical: '/sobre',
+  },
 }
 
 export default function SobrePage() {

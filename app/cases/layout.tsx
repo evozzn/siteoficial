@@ -3,12 +3,14 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Cases',
   description:
-    'Resultados reais de clientes ativos da Evozzn, sem tráfego pago: SINTER-MT, Luiz Guedes e outros.',
+    'Resultados reais de clientes ativos da Evozzn: SINTER-MT, Luiz Guedes e outros.',
   openGraph: {
     title: 'Nossos Cases - Evozzn',
-    description:
-      'Resultados reais de clientes ativos da Evozzn, sem tráfego pago.',
+    description: 'Resultados reais de clientes ativos da Evozzn.',
     url: '/cases',
+  },
+  alternates: {
+    canonical: '/cases',
   },
 }
 
