@@ -36,17 +36,26 @@ function validateContactData(data: ContactFormData): { valid: boolean; errors: s
   }
 }
 
-// Função para enviar email
-// Para usar Resend em produção, descomente o código abaixo e configure RESEND_API_KEY
+// Função para enviar email via Resend.
+// Enquanto não houver domínio próprio verificado, o remetente usa o domínio
+// de testes do Resend (onboarding@resend.dev) — o envio funciona normalmente,
+// só o endereço de remetente muda quando o domínio evozzn.com for configurado.
 async function sendEmail(data: ContactFormData): Promise<{ success: boolean; error?: string }> {
   try {
-    /*
     const RESEND_API_KEY = process.env.RESEND_API_KEY
-    const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'evozzn@gmail.com'
+    const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
     const RESEND_TO_EMAIL = process.env.RESEND_TO_EMAIL || 'evozzn@gmail.com'
 
     if (!RESEND_API_KEY) {
-      return { success: false, error: 'Serviço de email não configurado' }
+      // Modo desenvolvimento: sem chave configurada, só loga.
+      console.log('📧 Pedido de orçamento (RESEND_API_KEY ausente):', {
+        nome: data.nome,
+        empresa: data.empresa,
+        whatsapp: data.whatsapp,
+        instagram: data.instagram,
+        projeto: data.projeto,
+      })
+      return { success: true }
     }
 
     const response = await fetch('https://api.resend.com/emails', {
@@ -66,28 +75,16 @@ async function sendEmail(data: ContactFormData): Promise<{ success: boolean; err
           <p><strong>WhatsApp:</strong> ${data.whatsapp}</p>
           <p><strong>Instagram:</strong> ${data.instagram || 'Não informado'}</p>
           <p><strong>Projeto:</strong></p>
-          <p>${(data.projeto || '').replace(/\n/g, '<br>')}</p>
+          <p>${(data.projeto || 'Não informado').replace(/\n/g, '<br>')}</p>
         `,
       }),
     })
 
     if (!response.ok) {
-      const errorData = await response.json()
+      const errorData = await response.json().catch(() => ({}))
+      console.error('Erro ao enviar email via Resend:', errorData)
       return { success: false, error: errorData.message || 'Erro ao enviar email' }
     }
-
-    return { success: true }
-    */
-
-    // Modo desenvolvimento: log apenas
-    console.log('📧 Pedido de orçamento:', {
-      nome: data.nome,
-      empresa: data.empresa,
-      whatsapp: data.whatsapp,
-      instagram: data.instagram,
-      projeto: data.projeto,
-    })
-    console.log('⚠️  Configure RESEND_API_KEY no .env para envio real')
 
     return { success: true }
   } catch (error) {
