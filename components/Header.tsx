@@ -31,6 +31,7 @@ export default function Header() {
   }, [isOpen])
 
   return (
+    <>
     <header className="w-full border-b border-gray-800/50 bg-background/80 backdrop-blur-md sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -75,34 +76,35 @@ export default function Header() {
           </button>
         </div>
       </nav>
-
-      {/* Mobile drawer */}
-      {isOpen && (
-        <div
-          id="mobile-menu"
-          className="md:hidden fixed inset-0 top-20 bg-background z-[60] flex flex-col px-6 py-8 border-t border-gray-800/50"
-        >
-          <nav className="flex flex-col gap-1 flex-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`text-2xl font-semibold transition-colors duration-200 py-4 border-b border-gray-800/50 ${pathname === link.href ? 'text-primary' : 'text-gray-200 hover:text-primary'}`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <Link
-            href="/contato"
-            onClick={() => setIsOpen(false)}
-            className="bg-primary hover:bg-secondary text-white font-semibold px-6 py-4 rounded-lg transition-all duration-200 text-center text-lg"
-          >
-            Solicitar orçamento
-          </Link>
-        </div>
-      )}
     </header>
+
+    {/* Mobile drawer — fora do header pra não herdar o containing block do backdrop-blur (quebra "fixed" no Safari/iOS) */}
+    {isOpen && (
+      <div
+        id="mobile-menu"
+        className="md:hidden fixed inset-0 top-20 bg-background z-[60] flex flex-col px-6 py-8 border-t border-gray-800/50 animate-fade-in"
+      >
+        <nav className="flex flex-col gap-1 flex-1">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className={`text-2xl font-semibold transition-colors duration-200 py-4 border-b border-gray-800/50 ${pathname === link.href ? 'text-primary' : 'text-gray-200 hover:text-primary'}`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <Link
+          href="/contato"
+          onClick={() => setIsOpen(false)}
+          className="bg-primary hover:bg-secondary text-white font-semibold px-6 py-4 rounded-lg transition-all duration-200 text-center text-lg"
+        >
+          Solicitar orçamento
+        </Link>
+      </div>
+    )}
+    </>
   )
 }
