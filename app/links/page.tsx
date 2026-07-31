@@ -40,7 +40,8 @@ export default function LinksPage() {
         <Logo size="md" href="" />
 
         <p className="mt-4 mb-10 text-center text-gray-400 text-sm">
-          Agência de conteúdo e posicionamento digital
+          Agência de marketing e mídia que não faz marketing comum.
+          Construímos crescimento inteligente pra quem quer liderar.
         </p>
 
         <div className="w-full flex flex-col gap-4">
