@@ -12,18 +12,19 @@ export default function robots(): MetadataRoute.Robots {
           '/api/',
           '/_next/',
           '/admin/',
+          '/links',
         ],
       },
       // Permite bots de busca principais
       {
         userAgent: 'Googlebot',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/links'],
       },
       {
         userAgent: 'Bingbot',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/links'],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

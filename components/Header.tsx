@@ -80,7 +80,7 @@ export default function Header() {
       {isOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden fixed inset-0 top-20 bg-background/95 backdrop-blur-md z-40 flex flex-col px-6 py-8 border-t border-gray-800/50"
+          className="md:hidden fixed inset-0 top-20 bg-background z-[60] flex flex-col px-6 py-8 border-t border-gray-800/50"
         >
           <nav className="flex flex-col gap-1 flex-1">
             {navLinks.map((link) => (
