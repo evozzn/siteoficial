@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import CtaButton from '@/components/CtaButton'
 import { servicosHome } from '@/lib/servicos'
 
 export const metadata: Metadata = {
@@ -516,25 +517,7 @@ export default function SobrePage() {
           Fala com a gente e a gente te diz, com honestidade, se e como
           podemos trabalhar juntos.
         </p>
-        <Link
-          href="/contato"
-          className="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 glow-primary uppercase text-sm tracking-wide"
-        >
-          Fala com a gente
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-            />
-          </svg>
-        </Link>
+        <CtaButton>Fala com a gente</CtaButton>
       </section>
     </div>
   )

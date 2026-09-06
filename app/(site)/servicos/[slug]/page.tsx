@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import CtaButton from '@/components/CtaButton'
 import { servicos, getServicoBySlug } from '@/lib/servicos'
 
 const metodo = [
@@ -120,25 +121,7 @@ export default function ServicoPage({
             {servico.resumo}
           </p>
 
-          <Link
-            href="/contato"
-            className="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 glow-primary uppercase text-sm tracking-wide"
-          >
-            Solicitar proposta
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-              />
-            </svg>
-          </Link>
+          <CtaButton>Solicitar proposta</CtaButton>
         </div>
 
         <div className="bg-gray-900/50 rounded-xl border border-gray-800 p-8">
@@ -212,25 +195,7 @@ export default function ServicoPage({
 
       <div className="mt-16 flex flex-col items-center justify-center gap-5 text-center">
         <p className="text-gray-400">Quer conversar sobre esse serviço?</p>
-        <Link
-          href="/contato"
-          className="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 glow-primary uppercase text-sm tracking-wide"
-        >
-          Fala com a gente
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-            />
-          </svg>
-        </Link>
+        <CtaButton>Fala com a gente</CtaButton>
       </div>
     </div>
   )
