@@ -6,7 +6,7 @@ import GoogleAnalytics from '@/components/GoogleAnalytics'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://evozzn.com'),
+  metadataBase: new URL('https://www.evozzn.com'),
   title: {
     default: 'Evozzn - Conteúdo e Posicionamento Digital',
     template: '%s',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://evozzn.com',
+    url: 'https://www.evozzn.com',
     siteName: 'Evozzn',
     title: 'Evozzn - Conteúdo e Posicionamento Digital',
     description:
@@ -53,9 +53,9 @@ const organizationJsonLd = {
   name: 'Evozzn',
   description:
     'Agência de conteúdo e posicionamento digital. Social media, produção de vídeo e web design, com processo de agência e atendimento próximo.',
-  url: 'https://evozzn.com',
-  logo: 'https://evozzn.com/logo/logomarca-nova.svg',
-  image: 'https://evozzn.com/logo/logomarca-nova.svg',
+  url: 'https://www.evozzn.com',
+  logo: 'https://www.evozzn.com/logo/logomarca-nova.svg',
+  image: 'https://www.evozzn.com/logo/logomarca-nova.svg',
   email: 'evozzn@gmail.com',
   areaServed: 'BR',
   address: {

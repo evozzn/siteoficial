@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { servicos } from '@/lib/servicos'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://evozzn.com'
+  const baseUrl = 'https://www.evozzn.com'
 
   // Rotas estáticas do site
   const routes = [

@@ -10,9 +10,16 @@ export default function PortfolioPage() {
     categoriasPortfolio[0]
   )
   const [videosAtivos, setVideosAtivos] = useState<Set<string>>(new Set())
+  const [imagensCarregadas, setImagensCarregadas] = useState<Set<string>>(
+    new Set()
+  )
 
   const ativarVideo = (id: string) => {
     setVideosAtivos((prev) => new Set(prev).add(id))
+  }
+
+  const marcarImagemCarregada = (id: string) => {
+    setImagensCarregadas((prev) => new Set(prev).add(id))
   }
 
   const itensFiltrados = portfolioItems.filter(
@@ -68,7 +75,10 @@ export default function PortfolioPage() {
                     width={item.imagemWidth ?? 1080}
                     height={item.imagemHeight ?? 1350}
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="w-full h-auto block"
+                    onLoad={() => marcarImagemCarregada(item.id)}
+                    className={`w-full h-auto block transition-opacity duration-500 ease-out ${
+                      imagensCarregadas.has(item.id) ? 'opacity-100' : 'opacity-0'
+                    }`}
                   />
                   {item.link && (
                     <a
@@ -112,7 +122,10 @@ export default function PortfolioPage() {
                         width={480}
                         height={360}
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="w-full h-full object-cover"
+                        onLoad={() => marcarImagemCarregada(item.id)}
+                        className={`w-full h-full object-cover transition-opacity duration-500 ease-out ${
+                          imagensCarregadas.has(item.id) ? 'opacity-100' : 'opacity-0'
+                        }`}
                       />
                       <span className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/25 transition-colors duration-200">
                         <span className="flex items-center justify-center w-16 h-16 rounded-full bg-primary shadow-lg group-hover:bg-secondary transition-colors duration-200">
