@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { portfolioItems, categoriasPortfolio } from '@/lib/portfolio'
 
 export default function PortfolioPage() {
@@ -61,10 +62,12 @@ export default function PortfolioPage() {
             >
               {item.imagem && (
                 <div className="relative group">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={item.imagem}
                     alt={item.titulo}
+                    width={item.imagemWidth ?? 1080}
+                    height={item.imagemHeight ?? 1350}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="w-full h-auto block"
                   />
                   {item.link && (
@@ -103,10 +106,12 @@ export default function PortfolioPage() {
                       aria-label={`Reproduzir vídeo: ${item.titulo}`}
                       className="group absolute inset-0 w-full h-full"
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src={`https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg`}
                         alt={item.titulo}
+                        width={480}
+                        height={360}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="w-full h-full object-cover"
                       />
                       <span className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/25 transition-colors duration-200">

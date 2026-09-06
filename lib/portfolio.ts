@@ -5,6 +5,8 @@ export interface PortfolioItem {
   categoria: string
   descricao: string
   imagem?: string
+  imagemWidth?: number
+  imagemHeight?: number
   video?: string
   youtubeId?: string
   vertical?: boolean
@@ -40,6 +42,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Perfil do Luiz Guedes após a gestão da Evozzn, com identidade visual consistente e conteúdo estratégico.',
     imagem: '/portfolio/luiz-guedes-perfil-depois.png',
+    imagemWidth: 1220,
+    imagemHeight: 2712,
   },
   {
     id: 'sinter-mt-perfil-depois',
@@ -49,6 +53,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Perfil do SINTER-MT após a gestão da Evozzn, com identidade visual consistente e conteúdo estratégico.',
     imagem: '/portfolio/sinter-mt-perfil-depois.png',
+    imagemWidth: 1220,
+    imagemHeight: 2712,
   },
   {
     id: 'evozzn-perfil',
@@ -58,6 +64,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Perfil oficial da Evozzn, aplicando o mesmo padrão de identidade e consistência entregue aos clientes.',
     imagem: '/portfolio/evozzn-perfil.png',
+    imagemWidth: 1220,
+    imagemHeight: 2712,
   },
   {
     id: 'evozzn-post-1',
@@ -67,6 +75,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Post estático da própria Evozzn, aplicando a identidade visual e o padrão de design usado nos clientes.',
     imagem: '/portfolio/evozzn-post-1.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-post-2',
@@ -76,6 +86,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Post institucional sobre o posicionamento da Evozzn: marketing como estrutura de crescimento, não só divulgação pontual.',
     imagem: '/portfolio/evozzn-post-2.png',
+    imagemWidth: 1087,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-post-3',
@@ -85,6 +97,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Post estático da própria Evozzn, aplicando a identidade visual e o padrão de design usado nos clientes.',
     imagem: '/portfolio/evozzn-post-3.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-post-4',
@@ -94,6 +108,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Post estático da própria Evozzn, aplicando a identidade visual e o padrão de design usado nos clientes.',
     imagem: '/portfolio/evozzn-post-4.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-carrossel-crescimento-1',
@@ -103,6 +119,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional sobre os gargalos mais comuns que travam o crescimento de um negócio.',
     imagem: '/portfolio/evozzn-carrossel-crescimento-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-carrossel-crescimento-2',
@@ -112,6 +130,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional sobre os gargalos mais comuns que travam o crescimento de um negócio.',
     imagem: '/portfolio/evozzn-carrossel-crescimento-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-carrossel-crescimento-3',
@@ -121,6 +141,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional sobre os gargalos mais comuns que travam o crescimento de um negócio.',
     imagem: '/portfolio/evozzn-carrossel-crescimento-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-carrossel-quem-somos-1',
@@ -130,6 +152,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de apresentação institucional, explicando o processo e o posicionamento da Evozzn.',
     imagem: '/portfolio/evozzn-carrossel-quem-somos-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-carrossel-quem-somos-2',
@@ -139,6 +163,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de apresentação institucional, explicando o processo e o posicionamento da Evozzn.',
     imagem: '/portfolio/evozzn-carrossel-quem-somos-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-carrossel-quem-somos-3',
@@ -148,6 +174,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de apresentação institucional, explicando o processo e o posicionamento da Evozzn.',
     imagem: '/portfolio/evozzn-carrossel-quem-somos-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-carrossel-quem-somos-4',
@@ -157,6 +185,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de apresentação institucional, explicando o processo e o posicionamento da Evozzn.',
     imagem: '/portfolio/evozzn-carrossel-quem-somos-04.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-carrossel-seguidores-1',
@@ -166,6 +196,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional sobre transformar presença nas redes em resultado real, não só métricas de vaidade.',
     imagem: '/portfolio/evozzn-carrossel-seguidores-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-carrossel-seguidores-2',
@@ -175,6 +207,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional sobre transformar presença nas redes em resultado real, não só métricas de vaidade.',
     imagem: '/portfolio/evozzn-carrossel-seguidores-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-carrossel-seguidores-3',
@@ -184,6 +218,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional sobre transformar presença nas redes em resultado real, não só métricas de vaidade.',
     imagem: '/portfolio/evozzn-carrossel-seguidores-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-carrossel-seguidores-4',
@@ -193,6 +229,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional sobre transformar presença nas redes em resultado real, não só métricas de vaidade.',
     imagem: '/portfolio/evozzn-carrossel-seguidores-04.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'evozzn-carrossel-seguidores-5',
@@ -202,6 +240,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional sobre transformar presença nas redes em resultado real, não só métricas de vaidade.',
     imagem: '/portfolio/evozzn-carrossel-seguidores-05.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-melhor-versao-1',
@@ -211,6 +251,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo sobre treino e evolução física, com identidade visual padronizada do perfil.',
     imagem: '/portfolio/luiz-guedes-carrossel-melhor-versao-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-melhor-versao-2',
@@ -220,6 +262,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo sobre treino e evolução física, com identidade visual padronizada do perfil.',
     imagem: '/portfolio/luiz-guedes-carrossel-melhor-versao-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-melhor-versao-3',
@@ -229,6 +273,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo sobre treino e evolução física, com identidade visual padronizada do perfil.',
     imagem: '/portfolio/luiz-guedes-carrossel-melhor-versao-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-apresentacao-1',
@@ -238,6 +284,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de apresentação do treinador online, com o storytelling e a identidade visual do perfil.',
     imagem: '/portfolio/luiz-guedes-carrossel-apresentacao-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-apresentacao-2',
@@ -247,6 +295,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de apresentação do treinador online, com o storytelling e a identidade visual do perfil.',
     imagem: '/portfolio/luiz-guedes-carrossel-apresentacao-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-nao-depende-de-carga-1',
@@ -256,6 +306,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo explicando que hipertrofia depende de estímulo, não só do peso levantado.',
     imagem: '/portfolio/luiz-guedes-carrossel-nao-depende-de-carga-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-nao-depende-de-carga-2',
@@ -265,6 +317,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo explicando que hipertrofia depende de estímulo, não só do peso levantado.',
     imagem: '/portfolio/luiz-guedes-carrossel-nao-depende-de-carga-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-nao-depende-de-carga-3',
@@ -274,6 +328,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo explicando que hipertrofia depende de estímulo, não só do peso levantado.',
     imagem: '/portfolio/luiz-guedes-carrossel-nao-depende-de-carga-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-corpo-avisando-1',
@@ -283,6 +339,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo sobre sinais de alerta do corpo durante o treino, antes de virar lesão.',
     imagem: '/portfolio/luiz-guedes-carrossel-corpo-avisando-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-corpo-avisando-2',
@@ -292,6 +350,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo sobre sinais de alerta do corpo durante o treino, antes de virar lesão.',
     imagem: '/portfolio/luiz-guedes-carrossel-corpo-avisando-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-corpo-avisando-3',
@@ -301,6 +361,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo sobre sinais de alerta do corpo durante o treino, antes de virar lesão.',
     imagem: '/portfolio/luiz-guedes-carrossel-corpo-avisando-03.png',
+    imagemWidth: 1092,
+    imagemHeight: 1362,
   },
   {
     id: 'luiz-guedes-carrossel-treino-limitando-1',
@@ -310,6 +372,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo sobre erros comuns de treino que limitam a evolução do aluno.',
     imagem: '/portfolio/luiz-guedes-carrossel-treino-limitando-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-treino-limitando-2',
@@ -319,6 +383,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo sobre erros comuns de treino que limitam a evolução do aluno.',
     imagem: '/portfolio/luiz-guedes-carrossel-treino-limitando-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-treino-limitando-3',
@@ -328,6 +394,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo sobre erros comuns de treino que limitam a evolução do aluno.',
     imagem: '/portfolio/luiz-guedes-carrossel-treino-limitando-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'luiz-guedes-carrossel-nem-toda-dor-1',
@@ -337,6 +405,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo diferenciando dor boa de dor ruim no treino, com linguagem direta ao aluno.',
     imagem: '/portfolio/luiz-guedes-carrossel-nem-toda-dor-01.png',
+    imagemWidth: 1092,
+    imagemHeight: 1362,
   },
   {
     id: 'luiz-guedes-carrossel-nem-toda-dor-2',
@@ -346,6 +416,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo diferenciando dor boa de dor ruim no treino, com linguagem direta ao aluno.',
     imagem: '/portfolio/luiz-guedes-carrossel-nem-toda-dor-02.png',
+    imagemWidth: 1092,
+    imagemHeight: 1362,
   },
   {
     id: 'luiz-guedes-carrossel-nem-toda-dor-3',
@@ -355,6 +427,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo diferenciando dor boa de dor ruim no treino, com linguagem direta ao aluno.',
     imagem: '/portfolio/luiz-guedes-carrossel-nem-toda-dor-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-post-1',
@@ -364,6 +438,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Post estático do Sindicato dos Terapeutas do Mato Grosso, aplicando a identidade visual do perfil.',
     imagem: '/portfolio/sinter-post-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-post-2',
@@ -373,6 +449,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Post estático do Sindicato dos Terapeutas do Mato Grosso, aplicando a identidade visual do perfil.',
     imagem: '/portfolio/sinter-post-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-post-3',
@@ -382,6 +460,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Post estático do Sindicato dos Terapeutas do Mato Grosso, aplicando a identidade visual do perfil.',
     imagem: '/portfolio/sinter-post-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-post-4',
@@ -391,6 +471,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Post estático do Sindicato dos Terapeutas do Mato Grosso, aplicando a identidade visual do perfil.',
     imagem: '/portfolio/sinter-post-04.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-post-5',
@@ -400,6 +482,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Post estático do Sindicato dos Terapeutas do Mato Grosso, aplicando a identidade visual do perfil.',
     imagem: '/portfolio/sinter-post-05.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-post-6',
@@ -409,6 +493,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Post estático do Sindicato dos Terapeutas do Mato Grosso, aplicando a identidade visual do perfil.',
     imagem: '/portfolio/sinter-post-06.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-post-7',
@@ -418,6 +504,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Post estático do Sindicato dos Terapeutas do Mato Grosso, aplicando a identidade visual do perfil.',
     imagem: '/portfolio/sinter-post-07.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-post-8',
@@ -427,6 +515,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Post estático do Sindicato dos Terapeutas do Mato Grosso, aplicando a identidade visual do perfil.',
     imagem: '/portfolio/sinter-post-08.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-post-9',
@@ -436,6 +526,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Post estático do Sindicato dos Terapeutas do Mato Grosso, aplicando a identidade visual do perfil.',
     imagem: '/portfolio/sinter-post-09.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-momentos-nao-voltam-1',
@@ -445,6 +537,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo do SINTER-MT sobre a importância da terapia em momentos únicos da vida.',
     imagem: '/portfolio/sinter-carrossel-momentos-nao-voltam-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-momentos-nao-voltam-2',
@@ -454,6 +548,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo do SINTER-MT sobre a importância da terapia em momentos únicos da vida.',
     imagem: '/portfolio/sinter-carrossel-momentos-nao-voltam-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-momentos-nao-voltam-3',
@@ -463,6 +559,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo do SINTER-MT sobre a importância da terapia em momentos únicos da vida.',
     imagem: '/portfolio/sinter-carrossel-momentos-nao-voltam-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-mercado-nao-te-enxerga-1',
@@ -472,6 +570,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional do SINTER-MT sobre a valorização profissional dos terapeutas associados.',
     imagem: '/portfolio/sinter-carrossel-mercado-nao-te-enxerga-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-mercado-nao-te-enxerga-2',
@@ -481,6 +581,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional do SINTER-MT sobre a valorização profissional dos terapeutas associados.',
     imagem: '/portfolio/sinter-carrossel-mercado-nao-te-enxerga-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-mercado-nao-te-enxerga-3',
@@ -490,6 +592,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional do SINTER-MT sobre a valorização profissional dos terapeutas associados.',
     imagem: '/portfolio/sinter-carrossel-mercado-nao-te-enxerga-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-mercado-nao-te-enxerga-4',
@@ -499,6 +603,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional do SINTER-MT sobre a valorização profissional dos terapeutas associados.',
     imagem: '/portfolio/sinter-carrossel-mercado-nao-te-enxerga-04.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-palestrantes-1-1',
@@ -508,6 +614,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de divulgação de palestrante confirmado em evento do SINTER-MT.',
     imagem: '/portfolio/sinter-carrossel-palestrantes-1-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-palestrantes-1-2',
@@ -517,6 +625,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de divulgação de palestrante confirmado em evento do SINTER-MT.',
     imagem: '/portfolio/sinter-carrossel-palestrantes-1-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-palestrantes-1-3',
@@ -526,6 +636,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de divulgação de palestrante confirmado em evento do SINTER-MT.',
     imagem: '/portfolio/sinter-carrossel-palestrantes-1-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-palestrantes-2-1',
@@ -535,6 +647,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de divulgação de palestrante confirmado em evento do SINTER-MT.',
     imagem: '/portfolio/sinter-carrossel-palestrantes-2-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-palestrantes-2-2',
@@ -544,6 +658,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de divulgação de palestrante confirmado em evento do SINTER-MT.',
     imagem: '/portfolio/sinter-carrossel-palestrantes-2-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-palestrantes-2-3',
@@ -553,6 +669,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de divulgação de palestrante confirmado em evento do SINTER-MT.',
     imagem: '/portfolio/sinter-carrossel-palestrantes-2-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-palestrantes-3-1',
@@ -562,6 +680,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de divulgação de palestrante confirmado em evento do SINTER-MT.',
     imagem: '/portfolio/sinter-carrossel-palestrantes-3-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-palestrantes-3-2',
@@ -571,6 +691,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de divulgação de palestrante confirmado em evento do SINTER-MT.',
     imagem: '/portfolio/sinter-carrossel-palestrantes-3-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-palestrantes-3-3',
@@ -580,6 +702,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de divulgação de palestrante confirmado em evento do SINTER-MT.',
     imagem: '/portfolio/sinter-carrossel-palestrantes-3-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-palestrantes-4-1',
@@ -589,6 +713,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de divulgação de palestrante confirmado em evento do SINTER-MT.',
     imagem: '/portfolio/sinter-carrossel-palestrantes-4-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-palestrantes-4-2',
@@ -598,6 +724,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de divulgação de palestrante confirmado em evento do SINTER-MT.',
     imagem: '/portfolio/sinter-carrossel-palestrantes-4-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-palestrantes-4-3',
@@ -607,6 +735,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel de divulgação de palestrante confirmado em evento do SINTER-MT.',
     imagem: '/portfolio/sinter-carrossel-palestrantes-4-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-como-cobrar-1',
@@ -616,6 +746,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo do SINTER-MT sobre precificação do trabalho terapêutico.',
     imagem: '/portfolio/sinter-carrossel-como-cobrar-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-como-cobrar-2',
@@ -625,6 +757,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo do SINTER-MT sobre precificação do trabalho terapêutico.',
     imagem: '/portfolio/sinter-carrossel-como-cobrar-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-como-cobrar-3',
@@ -634,6 +768,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo do SINTER-MT sobre precificação do trabalho terapêutico.',
     imagem: '/portfolio/sinter-carrossel-como-cobrar-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-como-cobrar-4',
@@ -643,6 +779,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo do SINTER-MT sobre precificação do trabalho terapêutico.',
     imagem: '/portfolio/sinter-carrossel-como-cobrar-04.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-5-coisas-que-mudam-1',
@@ -652,6 +790,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo do SINTER-MT sobre os benefícios da filiação ao sindicato para a carreira do terapeuta.',
     imagem: '/portfolio/sinter-carrossel-5-coisas-que-mudam-01.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-5-coisas-que-mudam-2',
@@ -661,6 +801,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel educativo do SINTER-MT sobre os benefícios da filiação ao sindicato para a carreira do terapeuta.',
     imagem: '/portfolio/sinter-carrossel-5-coisas-que-mudam-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-voce-cuida-de-dezenas-1',
@@ -670,6 +812,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional do SINTER-MT sobre o suporte que o sindicato oferece ao terapeuta.',
     imagem: '/portfolio/sinter-carrossel-voce-cuida-de-dezenas-01.png',
+    imagemWidth: 1092,
+    imagemHeight: 1362,
   },
   {
     id: 'sinter-carrossel-voce-cuida-de-dezenas-2',
@@ -679,6 +823,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional do SINTER-MT sobre o suporte que o sindicato oferece ao terapeuta.',
     imagem: '/portfolio/sinter-carrossel-voce-cuida-de-dezenas-02.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-voce-cuida-de-dezenas-3',
@@ -688,6 +834,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional do SINTER-MT sobre o suporte que o sindicato oferece ao terapeuta.',
     imagem: '/portfolio/sinter-carrossel-voce-cuida-de-dezenas-03.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'sinter-carrossel-voce-cuida-de-dezenas-4',
@@ -697,6 +845,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Carrossel institucional do SINTER-MT sobre o suporte que o sindicato oferece ao terapeuta.',
     imagem: '/portfolio/sinter-carrossel-voce-cuida-de-dezenas-04.png',
+    imagemWidth: 1080,
+    imagemHeight: 1350,
   },
   {
     id: 'diogo-esteves-thumbnail-01',
@@ -706,6 +856,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-01.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-02',
@@ -715,6 +867,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-02.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-03',
@@ -724,6 +878,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-03.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-04',
@@ -733,6 +889,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-04.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-05',
@@ -742,6 +900,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-05.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-06',
@@ -751,6 +911,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-06.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-07',
@@ -760,6 +922,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-07.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-08',
@@ -769,6 +933,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-08.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-09',
@@ -778,6 +944,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-09.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-10',
@@ -787,6 +955,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-10.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-11',
@@ -796,6 +966,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-11.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-12',
@@ -805,6 +977,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-12.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-13',
@@ -814,6 +988,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-13.png',
+    imagemWidth: 1280,
+    imagemHeight: 714,
   },
   {
     id: 'diogo-esteves-thumbnail-14',
@@ -823,6 +999,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-14.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-15',
@@ -832,6 +1010,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-15.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'diogo-esteves-thumbnail-16',
@@ -841,6 +1021,8 @@ export const portfolioItems: PortfolioItem[] = [
     descricao:
       'Thumbnail produzida como parte da edição completa dos vídeos do canal, sem Shorts, só vídeos longos.',
     imagem: '/portfolio/diogo-esteves-thumbnail-16.png',
+    imagemWidth: 1280,
+    imagemHeight: 720,
   },
   {
     id: 'video-portfolio-01',
