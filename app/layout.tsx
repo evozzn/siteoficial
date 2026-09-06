@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://evozzn.com'),
   title: {
     default: 'Evozzn - Conteúdo e Posicionamento Digital',
-    template: '%s | Evozzn',
+    template: '%s',
   },
   description:
     'Agência de conteúdo e posicionamento digital. Social media, produção de vídeo e web design, com processo de agência e atendimento próximo.',
