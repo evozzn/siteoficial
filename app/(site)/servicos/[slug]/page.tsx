@@ -68,8 +68,27 @@ export default function ServicoPage({
   const servico = getServicoBySlug(params.slug)
   if (!servico) notFound()
 
+  const servicoJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: servico.titulo,
+    name: servico.titulo,
+    description: servico.resumo,
+    provider: {
+      '@type': 'Organization',
+      name: 'Evozzn',
+      url: 'https://www.evozzn.com',
+    },
+    areaServed: 'BR',
+    url: `https://www.evozzn.com/servicos/${servico.slug}`,
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicoJsonLd) }}
+      />
       <Link
         href="/servicos"
         className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200 mb-10 text-sm"

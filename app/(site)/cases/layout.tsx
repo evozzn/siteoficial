@@ -3,10 +3,10 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Cases',
   description:
-    'Resultados reais de clientes ativos da Evozzn: SINTER-MT, Luiz Guedes e outros.',
+    'Cases reais de clientes ativos da Evozzn, SINTER-MT, Luiz Guedes e outros negócios que cresceram com social media, vídeo e web design. Veja os resultados.',
   openGraph: {
     title: 'Nossos Cases - Evozzn',
-    description: 'Resultados reais de clientes ativos da Evozzn.',
+    description: 'Cases reais de clientes ativos da Evozzn, SINTER-MT, Luiz Guedes e outros negócios que cresceram com social media, vídeo e web design. Veja os resultados.',
     url: '/cases',
   },
   alternates: {
