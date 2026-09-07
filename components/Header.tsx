@@ -38,7 +38,7 @@ export default function Header() {
           <Logo size="xs" href="/" />
 
           {/* Desktop */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -50,7 +50,7 @@ export default function Header() {
             ))}
             <Link
               href="/contato"
-              className="bg-primary hover:bg-secondary text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 border border-primary/50 hover:border-secondary/50"
+              className="bg-primary hover:bg-secondary text-white font-semibold px-4 lg:px-6 py-2.5 rounded-lg transition-all duration-200 border border-primary/50 hover:border-secondary/50 whitespace-nowrap text-sm lg:text-base"
             >
               Solicitar orçamento
             </Link>
