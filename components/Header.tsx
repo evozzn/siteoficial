@@ -34,7 +34,7 @@ export default function Header() {
     <>
     <header className="w-full border-b border-gray-800/50 bg-background/80 backdrop-blur-md sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between gap-4 h-20">
           <Logo size="xs" href="/" />
 
           {/* Desktop */}
