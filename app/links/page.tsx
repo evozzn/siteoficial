@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Logo from '@/components/Logo'
+import LinksButtons from '@/components/LinksButtons'
 
 export const metadata: Metadata = {
   title: 'Links',
@@ -15,21 +16,25 @@ const links = [
     label: 'Falar no Whatsapp',
     href: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5571987497742'}?text=Olá,%20vim%20pelo%20link%20da%20Evozzn`,
     primary: true,
+    event: 'whatsapp_click',
   },
   {
     label: 'Instagram',
     href: `https://instagram.com/${process.env.NEXT_PUBLIC_INSTAGRAM_USERNAME || 'evozzn'}`,
     primary: false,
+    event: 'instagram_click',
   },
   {
     label: 'Portfólio',
     href: '/portfolio',
     primary: false,
+    event: 'portfolio_click',
   },
   {
     label: 'Site da Evozzn',
     href: '/',
     primary: false,
+    event: 'site_click',
   },
 ]
 
@@ -44,23 +49,7 @@ export default function LinksPage() {
           Construímos crescimento inteligente pra quem quer liderar.
         </p>
 
-        <div className="w-full flex flex-col gap-4">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith('http') ? '_blank' : undefined}
-              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className={
-                link.primary
-                  ? 'w-full text-center bg-primary hover:bg-secondary text-white font-bold px-6 py-4 rounded-full transition-all duration-300 transform hover:scale-105 glow-primary uppercase text-sm tracking-wide'
-                  : 'w-full text-center border border-gray-700 hover:border-primary text-white hover:text-primary font-bold px-6 py-4 rounded-full transition-colors duration-200 uppercase text-sm tracking-wide'
-              }
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
+        <LinksButtons links={links} />
 
         <p className="mt-12 text-center text-gray-600 text-xs">
           © {new Date().getFullYear()} Evozzn
