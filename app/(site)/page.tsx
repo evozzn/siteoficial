@@ -8,7 +8,7 @@ import { servicosHome } from '@/lib/servicos'
 export const metadata: Metadata = {
   title: 'Início',
   description:
-    'Agência de posicionamento digital especializada em social media, produção de vídeo e web design. Atendimento próximo, processo de agência.',
+    'Agência de marketing e mídia que não faz marketing comum. Construímos crescimento inteligente pra quem quer liderar.',
   openGraph: {
     title: 'Evozzn - Presença digital com processo de agência',
     description:
