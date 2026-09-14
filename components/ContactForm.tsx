@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
+import { useState, useEffect, useRef, FormEvent } from 'react'
 import { analytics } from '@/lib/analytics'
 
 interface FormErrors {
@@ -10,11 +10,121 @@ interface FormErrors {
   geral?: string
 }
 
+const OPCOES_PORTE = [
+  'Ainda não comecei no digital',
+  'Pequeno negócio / autônomo',
+  'Empresa em crescimento',
+  'Empresa consolidada',
+  'Organização grande / múltiplas unidades',
+]
+
+const OPCOES_BUDGET = [
+  'Até R$ 1.500/mês',
+  'R$ 1.500 a R$ 4.000/mês',
+  'R$ 4.000 a R$ 10.000/mês',
+  'Acima de R$ 10.000/mês',
+  'Ainda não sei',
+]
+
+const OPCOES_SERVICO = [
+  'Social Media',
+  'Produção e Edição de Vídeo',
+  'UX/UI e Web Design',
+  'Direção de Arte',
+  'Copywriting Estratégico',
+  'Automação',
+  'Ainda não sei / quero orientação',
+]
+
+function Selecionavel({
+  id,
+  label,
+  value,
+  onChange,
+  opcoes,
+}: {
+  id: string
+  label: string
+  value: string
+  onChange: (valor: string) => void
+  opcoes: string[]
+}) {
+  const [aberto, setAberto] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function handleClickFora(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setAberto(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickFora)
+    return () => document.removeEventListener('mousedown', handleClickFora)
+  }, [])
+
+  return (
+    <div ref={ref} className="relative">
+      <label htmlFor={id} className="block text-gray-300 mb-2">
+        {label}
+      </label>
+      <button
+        type="button"
+        id={id}
+        onClick={() => setAberto((a) => !a)}
+        className="w-full flex items-center justify-between bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-left focus:outline-none focus:ring-2 focus:border-primary focus:ring-primary transition-colors"
+      >
+        <span className={value ? 'text-white' : 'text-gray-500'}>
+          {value || 'Selecione'}
+        </span>
+        <svg
+          className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
+            aberto ? 'rotate-180' : ''
+          }`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+          />
+        </svg>
+      </button>
+      {aberto && (
+        <div className="absolute z-20 mt-2 w-full rounded-lg border border-gray-700 bg-gray-800 shadow-xl overflow-hidden">
+          {opcoes.map((opcao) => (
+            <button
+              key={opcao}
+              type="button"
+              onClick={() => {
+                onChange(opcao)
+                setAberto(false)
+              }}
+              className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
+                value === opcao
+                  ? 'bg-primary/15 text-primary'
+                  : 'text-gray-300 hover:bg-gray-700'
+              }`}
+            >
+              {opcao}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function ContactForm() {
   const [nome, setNome] = useState('')
   const [empresa, setEmpresa] = useState('')
   const [whatsapp, setWhatsapp] = useState('')
   const [instagram, setInstagram] = useState('')
+  const [porte, setPorte] = useState('')
+  const [budget, setBudget] = useState('')
+  const [servicosDesejados, setServicosDesejados] = useState<string[]>([])
   const [projeto, setProjeto] = useState('')
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -69,6 +179,14 @@ export default function ContactForm() {
     return Object.keys(newErrors).length === 0
   }
 
+  const toggleServico = (servico: string) => {
+    setServicosDesejados((atual) =>
+      atual.includes(servico)
+        ? atual.filter((s) => s !== servico)
+        : [...atual, servico]
+    )
+  }
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -90,6 +208,9 @@ export default function ContactForm() {
           empresa: empresa.trim(),
           whatsapp: whatsapp.trim(),
           instagram: instagram.trim(),
+          porte,
+          budget,
+          servicos: servicosDesejados,
           projeto: projeto.trim(),
         }),
       })
@@ -127,6 +248,9 @@ export default function ContactForm() {
       setEmpresa('')
       setWhatsapp('')
       setInstagram('')
+      setPorte('')
+      setBudget('')
+      setServicosDesejados([])
       setProjeto('')
       setErrors({})
     } catch (error) {
@@ -241,6 +365,77 @@ export default function ContactForm() {
             className="w-full bg-gray-800 border border-gray-700 rounded-lg pl-8 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:border-primary focus:ring-primary transition-colors"
             placeholder="seuperfil"
           />
+        </div>
+      </div>
+
+      {/* Porte do negócio */}
+      <Selecionavel
+        id="porte"
+        label="Porte do negócio"
+        value={porte}
+        onChange={setPorte}
+        opcoes={OPCOES_PORTE}
+      />
+
+      {/* Faixa de investimento */}
+      <Selecionavel
+        id="budget"
+        label="Faixa de investimento mensal"
+        value={budget}
+        onChange={setBudget}
+        opcoes={OPCOES_BUDGET}
+      />
+
+      {/* Tipo de serviço desejado */}
+      <div>
+        <span className="block text-gray-300 mb-2">
+          Tipo de serviço que deseja
+          <span className="text-gray-500 text-sm"> (pode marcar mais de um)</span>
+        </span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {OPCOES_SERVICO.map((opcao, index) => (
+            <label
+              key={opcao}
+              className={`flex items-center gap-2 rounded-lg border px-3 py-2.5 cursor-pointer transition-colors ${
+                index === OPCOES_SERVICO.length - 1 ? 'sm:col-span-2' : ''
+              } ${
+                servicosDesejados.includes(opcao)
+                  ? 'border-primary bg-primary/10 text-white'
+                  : 'border-gray-700 bg-gray-800 text-gray-300 hover:border-gray-600'
+              }`}
+            >
+              <input
+                type="checkbox"
+                checked={servicosDesejados.includes(opcao)}
+                onChange={() => toggleServico(opcao)}
+                className="sr-only"
+              />
+              <span
+                className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border transition-colors ${
+                  servicosDesejados.includes(opcao)
+                    ? 'bg-primary border-primary'
+                    : 'border-gray-600 bg-gray-900'
+                }`}
+              >
+                {servicosDesejados.includes(opcao) && (
+                  <svg
+                    className="w-3.5 h-3.5 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={3}
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4.5 12.75l6 6 9-13.5"
+                    />
+                  </svg>
+                )}
+              </span>
+              <span className="text-sm">{opcao}</span>
+            </label>
+          ))}
         </div>
       </div>
 

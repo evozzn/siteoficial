@@ -5,6 +5,9 @@ interface ContactFormData {
   empresa: string
   whatsapp: string
   instagram?: string
+  porte?: string
+  budget?: string
+  servicos?: string[]
   projeto?: string
 }
 
@@ -53,6 +56,9 @@ async function sendEmail(data: ContactFormData): Promise<{ success: boolean; err
         empresa: data.empresa,
         whatsapp: data.whatsapp,
         instagram: data.instagram,
+        porte: data.porte,
+        budget: data.budget,
+        servicos: data.servicos,
         projeto: data.projeto,
       })
       return { success: true }
@@ -74,6 +80,9 @@ async function sendEmail(data: ContactFormData): Promise<{ success: boolean; err
           <p><strong>Empresa:</strong> ${data.empresa}</p>
           <p><strong>WhatsApp:</strong> ${data.whatsapp}</p>
           <p><strong>Instagram:</strong> ${data.instagram ? `@${data.instagram}` : 'Não informado'}</p>
+          <p><strong>Porte do negócio:</strong> ${data.porte || 'Não informado'}</p>
+          <p><strong>Faixa de investimento:</strong> ${data.budget || 'Não informado'}</p>
+          <p><strong>Serviços desejados:</strong> ${data.servicos && data.servicos.length > 0 ? data.servicos.join(', ') : 'Não informado'}</p>
           <p><strong>Projeto:</strong></p>
           <p>${(data.projeto || 'Não informado').replace(/\n/g, '<br>')}</p>
         `,
