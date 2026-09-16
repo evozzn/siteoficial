@@ -9,6 +9,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/servicos/relatorios-e-metricas',
+        destination: '/servicos/social-media',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

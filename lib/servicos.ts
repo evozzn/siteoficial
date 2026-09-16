@@ -17,9 +17,11 @@ export interface ServicoHome {
 }
 
 // Páginas reais de serviço (geradas em /servicos/[slug]).
-// Inteligência de Dados e Conteúdo & Social não têm página própria:
-// o conteúdo delas foi unificado dentro de Social Media, já que não são
-// pilares separados na documentação interna da Evozzn.
+// Inteligência de Dados, Conteúdo & Social e Relatórios e Métricas não têm
+// página própria: o conteúdo deles foi unificado dentro de Social Media,
+// já que não são pilares separados na documentação interna da Evozzn
+// (o conteúdo de Relatórios e Métricas era fino demais e o Google passou
+// a tratar a página como cópia de outra, sem indexar).
 export const servicos: Servico[] = [
   {
     slug: 'social-media',
@@ -108,23 +110,6 @@ export const servicos: Servico[] = [
       'M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z',
   },
   {
-    slug: 'relatorios-e-metricas',
-    titulo: 'Relatórios e Métricas',
-    categoria: 'Métricas',
-    descricao:
-      'Acompanhamento de performance e relatório mensal, sem enrolação.',
-    resumo:
-      'Acompanhamento de performance e relatório mensal, direto ao ponto, mostrando o que funcionou e o que muda no próximo mês.',
-    beneficios: [
-      'Relatório mensal claro',
-      'Métricas que importam pro negócio',
-      'Acompanhamento contínuo',
-      'Transparência total no processo',
-    ],
-    icone:
-      'M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z',
-  },
-  {
     slug: 'automacao',
     titulo: 'Automação',
     categoria: 'Automação',
@@ -143,9 +128,9 @@ export const servicos: Servico[] = [
   },
 ]
 
-// Lista exibida na home ("O que fazemos"). Inteligência de Dados e
-// Conteúdo & Social continuam como cards separados aqui, mas o "destino"
-// leva pra página unificada de Social Media.
+// Lista exibida na home ("O que fazemos"). Inteligência de Dados,
+// Conteúdo & Social e Relatórios e Métricas continuam como cards separados
+// aqui, mas o "destino" leva pra página unificada de Social Media.
 export const servicosHome: ServicoHome[] = [
   {
     titulo: 'Social Media',
@@ -191,8 +176,9 @@ export const servicosHome: ServicoHome[] = [
     descricao:
       'Acompanhamento de performance e relatório mensal, sem enrolação.',
     destaque: 'Relatório mensal e acompanhamento contínuo.',
-    icone: servicos[5].icone,
-    destino: 'relatorios-e-metricas',
+    icone:
+      'M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z',
+    destino: 'social-media',
   },
   {
     titulo: 'Inteligência de Dados',
@@ -215,7 +201,7 @@ export const servicosHome: ServicoHome[] = [
     titulo: 'Automação',
     descricao: 'Otimização da jornada do cliente com automação.',
     destaque: 'Respostas programadas e triagem inicial de leads.',
-    icone: servicos[6].icone,
+    icone: servicos[5].icone,
     destino: 'automacao',
   },
 ]
