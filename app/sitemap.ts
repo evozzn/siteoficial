@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { servicos } from '@/lib/servicos'
+import { casesDetalhados } from '@/lib/cases'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.evozzn.com'
@@ -52,5 +53,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...routes, ...rotasServicos]
+  // Rotas dinâmicas: uma por case detalhado (com antes e depois)
+  const rotasCases = Object.keys(casesDetalhados).map((slug) => ({
+    url: `${baseUrl}/cases/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  return [...routes, ...rotasServicos, ...rotasCases]
 }

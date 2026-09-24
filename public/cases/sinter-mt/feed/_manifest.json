@@ -1,0 +1,410 @@
+[
+  {
+    "file": "/cases/sinter-mt/feed/51-2026-09-25.webp",
+    "mes": "09",
+    "dia": "25",
+    "origem": "[03] Post - 25.09",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/50-2026-09-23.webp",
+    "mes": "09",
+    "dia": "23",
+    "origem": "[02] Carrossel - 23.09",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/49-2026-09-21.webp",
+    "mes": "09",
+    "dia": "21",
+    "origem": "[01] Post - 21.09",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/48-2026-09-19.webp",
+    "mes": "09",
+    "dia": "19",
+    "origem": "[03] Carrossel - 19.09",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/47-2026-09-17.webp",
+    "mes": "09",
+    "dia": "17",
+    "origem": "[02] Post - 17.09",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/46-2026-09-14.webp",
+    "mes": "09",
+    "dia": "14",
+    "origem": "[01] Carrossel - 14.09",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/45-2026-09-11.webp",
+    "mes": "09",
+    "dia": "11",
+    "origem": "[03] Post - 11.09",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/44-2026-09-09.webp",
+    "mes": "09",
+    "dia": "09",
+    "origem": "[02] Reels - 09.09",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/43-2026-09-07.webp",
+    "mes": "09",
+    "dia": "07",
+    "origem": "[01] Post - 07.09",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/42-2026-09-06.webp",
+    "mes": "09",
+    "dia": "06",
+    "origem": "[03] Post - 06.09",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/41-2026-09-05.webp",
+    "mes": "09",
+    "dia": "05",
+    "origem": "[02] Reels - 05.09",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/40-2026-08-31.webp",
+    "mes": "08",
+    "dia": "31",
+    "origem": "[01] Carrossel - 31.08",
+    "w": 640,
+    "h": 799
+  },
+  {
+    "file": "/cases/sinter-mt/feed/39-2026-08-28.webp",
+    "mes": "08",
+    "dia": "28",
+    "origem": "[03] Carrossel 28.08",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/38-2026-08-26.webp",
+    "mes": "08",
+    "dia": "26",
+    "origem": "[02] Reels - 26.08",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/37-2026-08-24.webp",
+    "mes": "08",
+    "dia": "24",
+    "origem": "[01] Post - 24.08",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/36-2026-08-21.webp",
+    "mes": "08",
+    "dia": "21",
+    "origem": "[03] Post-Carrossel - 21.08",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/35-2026-08-19.webp",
+    "mes": "08",
+    "dia": "19",
+    "origem": "[02] Reels - 19.08",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/34-2026-08-17.webp",
+    "mes": "08",
+    "dia": "17",
+    "origem": "[01] Post-Carrossel - 17.08",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/33-2026-08-14.webp",
+    "mes": "08",
+    "dia": "14",
+    "origem": "[03] Post - 14.08",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/32-2026-08-12.webp",
+    "mes": "08",
+    "dia": "12",
+    "origem": "[02] Reels - 12.08",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/31-2026-08-10.webp",
+    "mes": "08",
+    "dia": "10",
+    "origem": "[01] Post - 10.08",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/30-2026-08-06.webp",
+    "mes": "08",
+    "dia": "06",
+    "origem": "[03] Post - 06.08",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/29-2026-08-05.webp",
+    "mes": "08",
+    "dia": "05",
+    "origem": "[02] Reels - 05.08",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/28-2026-08-03.webp",
+    "mes": "08",
+    "dia": "03",
+    "origem": "[01] Post - 03.08",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/27-2026-08-01.webp",
+    "mes": "08",
+    "dia": "01",
+    "origem": "[03] Post 01.08",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/26-2026-07-31.webp",
+    "mes": "07",
+    "dia": "31",
+    "origem": "[02] Reels - 31.07",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/25-2026-07-27.webp",
+    "mes": "07",
+    "dia": "27",
+    "origem": "[01] Carrossel - 27.07",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/24-2026-07-25.webp",
+    "mes": "07",
+    "dia": "25",
+    "origem": "[03] Post - 25.07",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/23-2026-07-23.webp",
+    "mes": "07",
+    "dia": "23",
+    "origem": "[02] Reels - 23.07",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/22-2026-07-21.webp",
+    "mes": "07",
+    "dia": "21",
+    "origem": "[01] Post - 21.07",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/21-2026-07-19.webp",
+    "mes": "07",
+    "dia": "19",
+    "origem": "[03] Post - 19.07",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/20-2026-07-17.webp",
+    "mes": "07",
+    "dia": "17",
+    "origem": "[02] Reels - 17.07",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/19-2026-07-14.webp",
+    "mes": "07",
+    "dia": "14",
+    "origem": "[01] Carrossel - 14.07",
+    "w": 640,
+    "h": 798
+  },
+  {
+    "file": "/cases/sinter-mt/feed/18-2026-07-12.webp",
+    "mes": "07",
+    "dia": "12",
+    "origem": "[03] Post - 12.07",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/17-2026-07-10.webp",
+    "mes": "07",
+    "dia": "10",
+    "origem": "[02] Reels - 10.07",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/16-2026-07-07.webp",
+    "mes": "07",
+    "dia": "07",
+    "origem": "[01] Post - 07.07",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/15-2026-07-05.webp",
+    "mes": "07",
+    "dia": "05",
+    "origem": "[03] Carrossel 05.07",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/14-2026-07-03.webp",
+    "mes": "07",
+    "dia": "03",
+    "origem": "[02] Reels 03.07",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/13-2026-06-29.webp",
+    "mes": "06",
+    "dia": "29",
+    "origem": "[01] Carrossel 29.06",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/12-2026-06-27.webp",
+    "mes": "06",
+    "dia": "27",
+    "origem": "[03] Sábado - 27.06",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/11-2026-06-25.webp",
+    "mes": "06",
+    "dia": "25",
+    "origem": "[02] Quinta - 25.06",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/10-2026-06-22.webp",
+    "mes": "06",
+    "dia": "22",
+    "origem": "[01] Segunda - 22.06",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/09-2026-06-19.webp",
+    "mes": "06",
+    "dia": "19",
+    "origem": "[03] Sexta - 19.06",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/08-2026-06-17.webp",
+    "mes": "06",
+    "dia": "17",
+    "origem": "[02] Quarta - 17.06",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/07-2026-06-15.webp",
+    "mes": "06",
+    "dia": "15",
+    "origem": "[01] Segunda - 15.06",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/06-2026-06-12.webp",
+    "mes": "06",
+    "dia": "12",
+    "origem": "[03] Sexta - 12.06",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/05-2026-06-10.webp",
+    "mes": "06",
+    "dia": "10",
+    "origem": "[02] Terça - 10.06",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/04-2026-06-08.webp",
+    "mes": "06",
+    "dia": "08",
+    "origem": "[01] Segunda - 08.06",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/03-2026-06-05.webp",
+    "mes": "06",
+    "dia": "05",
+    "origem": "[03] Sexta - 05.06",
+    "w": 640,
+    "h": 800
+  },
+  {
+    "file": "/cases/sinter-mt/feed/02-2026-06-03.webp",
+    "mes": "06",
+    "dia": "03",
+    "origem": "[02] Terça - 03.06",
+    "w": 640,
+    "h": 1138
+  },
+  {
+    "file": "/cases/sinter-mt/feed/01-2026-06-01.webp",
+    "mes": "06",
+    "dia": "01",
+    "origem": "[01] Segunda - 01.06",
+    "w": 640,
+    "h": 800
+  }
+]
