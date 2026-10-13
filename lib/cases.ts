@@ -35,6 +35,21 @@ export const cases: Case[] = [
   },
   {
     id: '2',
+    slug: 'dr-snoopy-pet-shop',
+    cliente: 'Dr. Snoopy Pet Shop · Abrantes, Camaçari',
+    titulo: 'De perfil abandonado ao 2º lugar no Google',
+    descricao:
+      'O perfil da loja no Google existia, mas ninguém cuidava dele: sem dono, sem verificação, informação desatualizada. A Evozzn assumiu a gestão em setembro de 2026. Em cerca de 5 semanas, o pet shop chegou ao 2º lugar orgânico nas buscas da região, à frente de concorrentes com mais tempo de perfil, sem gastar com anúncio.',
+    categoria: 'Google Meu Negócio',
+    logo: '/cases/dr-snoopy/logo.webp',
+    resultados: [
+      { label: 'Posição no Google', valor: '2º lugar' },
+      { label: 'Pessoas que viram o perfil', valor: '+83%' },
+      { label: 'Buscas que exibiram o perfil', valor: '3,7x' },
+    ],
+  },
+  {
+    id: '3',
     cliente: 'Luiz Guedes · Treinador Online',
     titulo: 'Primeiro mês de gestão',
     descricao:
@@ -48,7 +63,7 @@ export const cases: Case[] = [
     ],
   },
   {
-    id: '3',
+    id: '4',
     cliente: 'Parceria de Mídia Paga · Criativos',
     titulo: 'Criativos para 3 contas de um parceiro',
     descricao:
@@ -61,7 +76,7 @@ export const cases: Case[] = [
     ],
   },
   {
-    id: '4',
+    id: '5',
     cliente: 'Diogo Esteves91 · YouTube',
     titulo: 'Parceria desde setembro de 2025',
     descricao:
@@ -222,4 +237,85 @@ export const casesDetalhados: Record<string, CaseDetalhe> = {
 
 export function getCaseDetalheBySlug(slug: string) {
   return casesDetalhados[slug]
+}
+
+// Página de case detalhada para Google Meu Negócio (Perfil da Empresa no
+// Google). Estrutura própria, diferente da de Instagram acima, porque os
+// dados e as provas visuais são de outra natureza (posição no Google,
+// painel de Desempenho do Perfil). Dados arquivados em
+// docs/cases/CASE_DR_SNOOPY_GMB.md — não arredondar nem inventar números
+// além do que está documentado lá.
+export interface CaseGmbDetalhe {
+  slug: string
+  tipo: 'gmb'
+  cliente: string
+  segmento: string
+  servico: string
+  inicioGestao: string
+  tag: string
+  titulo: string
+  subtitulo: string
+  ctaLabel: string
+  fotoFachada: string
+  fotoFachadaLargura: number
+  fotoFachadaAltura: number
+  sobreCliente: string
+  problema: string
+  antesDepois: MetricaAntesDepois[]
+  destaques: string[]
+  oQueFoiFeito: string[]
+  fonteNota: string
+}
+
+export const casesGmbDetalhados: Record<string, CaseGmbDetalhe> = {
+  'dr-snoopy-pet-shop': {
+    slug: 'dr-snoopy-pet-shop',
+    tipo: 'gmb',
+    cliente: 'Dr. Snoopy Pet Shop',
+    segmento: 'Pet shop em Catu de Abrantes, Camaçari (BA)',
+    servico: 'Gestão do Perfil da Empresa no Google (Google Meu Negócio)',
+    inicioGestao: '4 de setembro de 2026',
+    tag: 'Case real · Google Meu Negócio',
+    titulo: 'De perfil abandonado ao 2º lugar no Google',
+    subtitulo:
+      'Pet shop em Abrantes, Camaçari (BA). Gestão do Perfil da Empresa no Google iniciada em 4 de setembro de 2026. Resultado 100% orgânico, sem anúncio pago.',
+    ctaLabel: 'Quero meu negócio no topo do Google',
+    fotoFachada: '/cases/dr-snoopy/fachada.webp',
+    fotoFachadaLargura: 1015,
+    fotoFachadaAltura: 1200,
+    sobreCliente:
+      'Dr. Snoopy Pet Shop fica em Catu de Abrantes, Camaçari, às margens da Estrada do Coco. Loja, banho e tosa, veterinário e táxi pet. A loja era bem avaliada por quem já conhecia, mas era quase invisível para quem procurava um pet shop no Google.',
+    problema:
+      'O perfil no Google existia, mas sem dono. Ninguém respondia, ninguém atualizava, ninguém controlava o que aparecia. Para o Google, um perfil sem gestão é um perfil pouco confiável, e ele mostra menos esse perfil nas buscas. Em agosto, só 16 pesquisas exibiram a loja.',
+    antesDepois: [
+      { label: 'Pessoas que viram o perfil', antes: '144', depois: '264', crescimento: '+83%' },
+      { label: 'Buscas que exibiram o perfil', antes: '16', depois: '59', crescimento: '3,7x' },
+      { label: 'Interações no perfil', antes: '65', depois: '77', crescimento: '+18%' },
+      { label: 'Pedidos de rota até a loja', antes: '63', depois: '69', crescimento: '+10%' },
+      { label: 'Ligações e mensagens', antes: '2', depois: '8', crescimento: '4x' },
+    ],
+    destaques: [
+      'Novas buscas passaram a encontrar a loja: pet shop abrantes, banho pet abrantes e banho e tosa em lauro de freitas. São pessoas procurando o serviço, não o nome da loja, ou seja, clientes novos',
+      '67% das visualizações vieram de buscas no celular, eram 45% em agosto',
+      'Quase 9 em cada 10 interações são pedidos de rota: o perfil leva gente até a porta da loja',
+      'Nota 4,9 com 19 avaliações, a mais alta entre os pet shops da busca',
+    ],
+    oQueFoiFeito: [
+      'Reivindicação e verificação do perfil junto ao Google',
+      'Correção e padronização de endereço, telefone, horários e serviços',
+      'Fotos reais da fachada, da estrutura e dos pets atendidos',
+      'Cartão de balcão com QR Code para avaliação no Google',
+      'Link direto para WhatsApp',
+      'Acompanhamento mensal das métricas e relatório de resultados',
+    ],
+    fonteNota: 'Dados do painel de Desempenho do Perfil da Empresa no Google, setembro de 2026.',
+  },
+}
+
+export function getCaseGmbDetalheBySlug(slug: string) {
+  return casesGmbDetalhados[slug]
+}
+
+export function getTodosOsSlugsDeCases() {
+  return [...Object.keys(casesDetalhados), ...Object.keys(casesGmbDetalhados)]
 }

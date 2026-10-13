@@ -6,7 +6,7 @@ import Link from 'next/link'
 import CtaButton from '@/components/CtaButton'
 import { cases } from '@/lib/cases'
 
-const categorias = ['Todos', 'Social Media', 'Criativos para Meta Ads', 'YouTube']
+const categorias = ['Todos', 'Social Media', 'Google Meu Negócio', 'Criativos para Meta Ads', 'YouTube']
 
 export default function CasesPage() {
   const [categoriaSelecionada, setCategoriaSelecionada] = useState('Todos')

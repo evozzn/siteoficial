@@ -1,11 +1,18 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import CtaButton from '@/components/CtaButton'
-import { casesDetalhados, getCaseDetalheBySlug } from '@/lib/cases'
+import {
+  type CaseDetalhe,
+  type CaseGmbDetalhe,
+  getCaseDetalheBySlug,
+  getCaseGmbDetalheBySlug,
+  getTodosOsSlugsDeCases,
+} from '@/lib/cases'
 
 export function generateStaticParams() {
-  return Object.keys(casesDetalhados).map((slug) => ({ slug }))
+  return getTodosOsSlugsDeCases().map((slug) => ({ slug }))
 }
 
 export function generateMetadata({
@@ -14,19 +21,40 @@ export function generateMetadata({
   params: { slug: string }
 }): Metadata {
   const caseDetalhe = getCaseDetalheBySlug(params.slug)
-  if (!caseDetalhe) return {}
-  return {
-    title: caseDetalhe.cliente,
-    description: caseDetalhe.subtitulo,
-    openGraph: {
-      title: `${caseDetalhe.cliente} - Case Evozzn`,
+  if (caseDetalhe) {
+    return {
+      title: caseDetalhe.cliente,
       description: caseDetalhe.subtitulo,
-      url: `/cases/${caseDetalhe.slug}`,
-    },
-    alternates: {
-      canonical: `/cases/${caseDetalhe.slug}`,
-    },
+      openGraph: {
+        title: `${caseDetalhe.cliente} - Case Evozzn`,
+        description: caseDetalhe.subtitulo,
+        url: `/cases/${caseDetalhe.slug}`,
+      },
+      alternates: {
+        canonical: `/cases/${caseDetalhe.slug}`,
+      },
+    }
   }
+
+  const caseGmb = getCaseGmbDetalheBySlug(params.slug)
+  if (caseGmb) {
+    return {
+      title: 'Case Dr. Snoopy Pet Shop: 2º lugar no Google em 5 semanas | Evozzn',
+      description:
+        'Perfil no Google sem gestão foi reivindicado, verificado e otimizado pela Evozzn. Em 5 semanas: 2º lugar nas buscas, pessoas que viram o perfil subiram 83% e as buscas que exibiram o perfil quase quadruplicaram.',
+      openGraph: {
+        title: `${caseGmb.cliente} - Case Evozzn`,
+        description: caseGmb.subtitulo,
+        url: `/cases/${caseGmb.slug}`,
+        images: [{ url: caseGmb.fotoFachada }],
+      },
+      alternates: {
+        canonical: `/cases/${caseGmb.slug}`,
+      },
+    }
+  }
+
+  return {}
 }
 
 export default function CaseDetalhePage({
@@ -35,8 +63,19 @@ export default function CaseDetalhePage({
   params: { slug: string }
 }) {
   const caseDetalhe = getCaseDetalheBySlug(params.slug)
-  if (!caseDetalhe) notFound()
+  if (caseDetalhe) {
+    return <CaseInstagramPage caseDetalhe={caseDetalhe} />
+  }
 
+  const caseGmb = getCaseGmbDetalheBySlug(params.slug)
+  if (caseGmb) {
+    return <CaseGmbPage caseGmb={caseGmb} />
+  }
+
+  notFound()
+}
+
+function CaseInstagramPage({ caseDetalhe }: { caseDetalhe: CaseDetalhe }) {
   const caseJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -209,6 +248,174 @@ export default function CaseDetalhePage({
       <div className="flex flex-col items-center justify-center gap-5 text-center animate-fade-in-up">
         <p className="text-gray-400">Quer resultados assim no seu perfil?</p>
         <CtaButton>{caseDetalhe.ctaLabel}</CtaButton>
+      </div>
+    </div>
+  )
+}
+
+function CaseGmbPage({ caseGmb }: { caseGmb: CaseGmbDetalhe }) {
+  const caseJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: caseGmb.titulo,
+    about: caseGmb.cliente,
+    description: caseGmb.subtitulo,
+    author: {
+      '@type': 'Organization',
+      name: 'Evozzn',
+      url: 'https://www.evozzn.com',
+    },
+    url: `https://www.evozzn.com/cases/${caseGmb.slug}`,
+  }
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(caseJsonLd) }}
+      />
+
+      <Link
+        href="/cases"
+        className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200 mb-10 text-sm"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        Todos os cases
+      </Link>
+
+      {/* Hero */}
+      <section className="mb-16 animate-fade-in-up">
+        <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full mb-5 uppercase tracking-wide">
+          {caseGmb.tag}
+        </span>
+        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-start">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-black text-white mb-6">
+              {caseGmb.titulo}
+            </h1>
+            <p className="text-xl text-gray-400 mb-8">
+              {caseGmb.subtitulo}
+            </p>
+            <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-gray-400 mb-8">
+              <div>
+                <span className="text-gray-500">Cliente: </span>
+                <span className="text-gray-200">{caseGmb.segmento}</span>
+              </div>
+              <div>
+                <span className="text-gray-500">Serviço: </span>
+                <span className="text-gray-200">{caseGmb.servico}</span>
+              </div>
+              <div>
+                <span className="text-gray-500">Início da gestão: </span>
+                <span className="text-gray-200">{caseGmb.inicioGestao}</span>
+              </div>
+            </div>
+            <CtaButton>{caseGmb.ctaLabel}</CtaButton>
+          </div>
+          <Image
+            src={caseGmb.fotoFachada}
+            alt={`Fachada do ${caseGmb.cliente}`}
+            width={caseGmb.fotoFachadaLargura}
+            height={caseGmb.fotoFachadaAltura}
+            className="w-full h-auto rounded-xl border border-gray-800 animate-fade-in"
+            priority
+          />
+        </div>
+      </section>
+
+      {/* O cliente, o problema e a prova do ranking */}
+      <section className="border-t border-gray-800 pt-16 mb-16 animate-fade-in-up">
+        <div className="grid lg:grid-cols-2 gap-10 items-start">
+          <div className="space-y-10">
+            <div>
+              <h2 className="text-2xl font-bold text-white mb-6">
+                O <span className="text-primary">cliente</span>
+              </h2>
+              <p className="text-gray-300 leading-relaxed">{caseGmb.sobreCliente}</p>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-white mb-6">
+                O <span className="text-primary">problema</span>
+              </h2>
+              <p className="text-gray-300 leading-relaxed">{caseGmb.problema}</p>
+            </div>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-2">
+              Antes e <span className="text-primary">depois</span>
+            </h2>
+            <p className="text-gray-500 text-xs mb-6">
+              Agosto de 2026 contra setembro de 2026, primeiro mês de gestão
+            </p>
+            <div className="grid grid-cols-2 gap-3">
+              {caseGmb.antesDepois.map((metrica, index) => (
+                <div
+                  key={metrica.label}
+                  className={`bg-gray-900/50 rounded-xl border border-gray-800 hover:border-primary/50 transition-all duration-300 p-4 flex flex-col items-center justify-center text-center ${
+                    index === caseGmb.antesDepois.length - 1 && caseGmb.antesDepois.length % 2 !== 0
+                      ? 'col-span-2'
+                      : ''
+                  }`}
+                >
+                  <span className="text-xs text-gray-500 uppercase tracking-wide mb-2">
+                    {metrica.label}
+                  </span>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-gray-500 text-sm">{metrica.antes}</span>
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                    <span className="text-white font-bold">{metrica.depois}</span>
+                  </div>
+                  <span className="text-primary text-lg font-black">{metrica.crescimento}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Destaques */}
+      <section className="border-t border-gray-800 pt-16 mb-16 animate-fade-in-up">
+        <h2 className="text-2xl font-bold text-white mb-6">
+          Destaques do <span className="text-primary">período</span>
+        </h2>
+        <ul className="grid sm:grid-cols-2 gap-4">
+          {caseGmb.destaques.map((destaque) => (
+            <li key={destaque} className="flex items-start gap-3">
+              <svg className="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span className="text-gray-300 text-sm">{destaque}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* O que a Evozzn fez */}
+      <section className="border-t border-gray-800 pt-16 mb-16 animate-fade-in-up">
+        <h2 className="text-3xl md:text-4xl font-black text-white mb-10 text-center">
+          O que a Evozzn <span className="text-primary">fez</span>
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+          {caseGmb.oQueFoiFeito.map((item, index) => (
+            <div key={item} className="bg-gray-900/50 rounded-xl border border-gray-800 hover:border-primary/50 transition-all duration-300 p-5 flex items-start gap-3">
+              <span className="text-xs text-gray-600 font-bold shrink-0 mt-0.5">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span className="text-gray-300 text-sm">{item}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <div className="flex flex-col items-center justify-center gap-5 text-center animate-fade-in-up">
+        <p className="text-gray-400">Seu negócio aparece quando o cliente procura no Google?</p>
+        <CtaButton>{caseGmb.ctaLabel}</CtaButton>
+        <p className="text-gray-600 text-xs">{caseGmb.fonteNota}</p>
       </div>
     </div>
   )
