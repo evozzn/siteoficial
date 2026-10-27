@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import AntesDepoisToggle from '@/components/AntesDepoisToggle'
 import CtaButton from '@/components/CtaButton'
 import {
   type CaseDetalhe,
@@ -112,27 +113,41 @@ function CaseInstagramPage({ caseDetalhe }: { caseDetalhe: CaseDetalhe }) {
         <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full mb-5 uppercase tracking-wide">
           {caseDetalhe.tag}
         </span>
-        <h1 className="text-4xl md:text-5xl font-black text-white mb-6 max-w-3xl">
-          {caseDetalhe.titulo}
-        </h1>
-        <p className="text-xl text-gray-400 max-w-2xl mb-8">
-          {caseDetalhe.subtitulo}
-        </p>
-        <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-gray-400 mb-8">
+        <div className={caseDetalhe.logo ? 'grid lg:grid-cols-[1.4fr_1fr] gap-10 items-center' : ''}>
           <div>
-            <span className="text-gray-500">Cliente: </span>
-            <span className="text-gray-200">{caseDetalhe.segmento}</span>
+            <h1 className="text-4xl md:text-5xl font-black text-white mb-6 max-w-3xl">
+              {caseDetalhe.titulo}
+            </h1>
+            <p className="text-xl text-gray-400 max-w-2xl mb-8">
+              {caseDetalhe.subtitulo}
+            </p>
+            <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-gray-400 mb-8">
+              <div>
+                <span className="text-gray-500">Cliente: </span>
+                <span className="text-gray-200">{caseDetalhe.segmento}</span>
+              </div>
+              <div>
+                <span className="text-gray-500">Serviço: </span>
+                <span className="text-gray-200">{caseDetalhe.servico}</span>
+              </div>
+              <div>
+                <span className="text-gray-500">Início da gestão: </span>
+                <span className="text-gray-200">{caseDetalhe.inicioGestao}</span>
+              </div>
+            </div>
+            <CtaButton>{caseDetalhe.ctaLabel}</CtaButton>
           </div>
-          <div>
-            <span className="text-gray-500">Serviço: </span>
-            <span className="text-gray-200">{caseDetalhe.servico}</span>
-          </div>
-          <div>
-            <span className="text-gray-500">Início da gestão: </span>
-            <span className="text-gray-200">{caseDetalhe.inicioGestao}</span>
-          </div>
+          {caseDetalhe.logo && (
+            <Image
+              src={caseDetalhe.logo}
+              alt={`Logo de ${caseDetalhe.cliente}`}
+              width={caseDetalhe.logoLargura ?? 1080}
+              height={caseDetalhe.logoAltura ?? 1080}
+              className="w-full h-auto animate-fade-in"
+              priority
+            />
+          )}
         </div>
-        <CtaButton>{caseDetalhe.ctaLabel}</CtaButton>
       </section>
 
       {/* Antes e Depois */}
@@ -145,7 +160,11 @@ function CaseInstagramPage({ caseDetalhe }: { caseDetalhe: CaseDetalhe }) {
 
         <div className="grid lg:grid-cols-2 gap-10 items-stretch">
           <div className="flex flex-col h-full">
-            <p className="invisible text-xs mb-3 text-center">Métricas</p>
+            <div className="invisible flex items-center justify-center gap-4 mb-3" aria-hidden="true">
+              <span className="p-1.5 w-7 h-7" />
+              <span className="text-xs w-16">Depois</span>
+              <span className="p-1.5 w-7 h-7" />
+            </div>
             <div className="flex-1 grid grid-cols-2 gap-4 auto-rows-fr">
               {caseDetalhe.antesDepois.map((metrica) => (
                 <div
@@ -168,25 +187,12 @@ function CaseInstagramPage({ caseDetalhe }: { caseDetalhe: CaseDetalhe }) {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <p className="text-gray-500 text-xs uppercase tracking-wide mb-3 text-center">Antes</p>
-              <img
-                src={caseDetalhe.fotoAntes}
-                alt={`Perfil do ${caseDetalhe.cliente} antes da gestão da Evozzn`}
-                className="w-full rounded-xl border border-gray-800 animate-fade-in"
-                loading="lazy"
-              />
-            </div>
-            <div>
-              <p className="text-primary text-xs uppercase tracking-wide mb-3 text-center font-semibold">Depois</p>
-              <img
-                src={caseDetalhe.fotoDepois}
-                alt={`Perfil do ${caseDetalhe.cliente} depois da gestão da Evozzn`}
-                className="w-full rounded-xl border border-primary/40 animate-fade-in"
-                loading="lazy"
-              />
-            </div>
+          <div className="max-w-xs mx-auto w-full">
+            <AntesDepoisToggle
+              cliente={caseDetalhe.cliente}
+              fotoAntes={caseDetalhe.fotoAntes}
+              fotoDepois={caseDetalhe.fotoDepois}
+            />
           </div>
         </div>
       </section>
@@ -227,22 +233,24 @@ function CaseInstagramPage({ caseDetalhe }: { caseDetalhe: CaseDetalhe }) {
       </section>
 
       {/* Posts publicados durante a gestão */}
-      <section className="border-t border-gray-800 pt-16 mb-16 animate-fade-in-up">
-        <p className="text-gray-400 text-sm text-center mb-6">
-          Posts publicados ao longo da gestão
-        </p>
-        <div className="columns-3 gap-1 sm:gap-2 max-w-3xl mx-auto">
-          {caseDetalhe.galeria.map((foto) => (
-            <img
-              key={foto.file}
-              src={foto.file}
-              alt={`Post de ${foto.dia}/${foto.mes} do ${caseDetalhe.cliente}`}
-              className="w-full mb-1 sm:mb-2 rounded-md border border-gray-800 hover:border-primary/50 transition-all duration-300 break-inside-avoid animate-fade-in"
-              loading="lazy"
-            />
-          ))}
-        </div>
-      </section>
+      {caseDetalhe.galeria && caseDetalhe.galeria.length > 0 && (
+        <section className="border-t border-gray-800 pt-16 mb-16 animate-fade-in-up">
+          <p className="text-gray-400 text-sm text-center mb-6">
+            Posts publicados ao longo da gestão
+          </p>
+          <div className="columns-3 gap-1 sm:gap-2 max-w-3xl mx-auto">
+            {caseDetalhe.galeria.map((foto) => (
+              <img
+                key={foto.file}
+                src={foto.file}
+                alt={`Post de ${foto.dia}/${foto.mes} do ${caseDetalhe.cliente}`}
+                className="w-full mb-1 sm:mb-2 rounded-md border border-gray-800 hover:border-primary/50 transition-all duration-300 break-inside-avoid animate-fade-in"
+                loading="lazy"
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <div className="flex flex-col items-center justify-center gap-5 text-center animate-fade-in-up">

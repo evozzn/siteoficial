@@ -50,6 +50,7 @@ export const cases: Case[] = [
   },
   {
     id: '3',
+    slug: 'luiz-guedes',
     cliente: 'Luiz Guedes · Treinador Online',
     titulo: 'Primeiro mês de gestão',
     descricao:
@@ -89,6 +90,21 @@ export const cases: Case[] = [
       { label: 'Vídeos editados', valor: '52' },
     ],
   },
+  {
+    id: '6',
+    slug: 'tecia-alcantara',
+    cliente: 'Técia Alcântara · Arquitetura e Design de Interiores',
+    titulo: 'Primeiro e segundo mês de gestão',
+    descricao:
+      'Perfil de arquitetura com pouca visibilidade antes da Evozzn. Em sete semanas de gestão, visualizações mais que dobraram e visitas ao perfil quase dobraram.',
+    categoria: 'Social Media',
+    logo: '/cases/tecia-alcantara-logo.png',
+    resultados: [
+      { label: 'Visualizações', valor: '+101%' },
+      { label: 'Visitas ao perfil', valor: '+91%' },
+      { label: 'Interações', valor: '+26%' },
+    ],
+  },
 ]
 
 export function getCaseBySlug(slug: string) {
@@ -122,12 +138,15 @@ export interface CaseDetalhe {
   titulo: string
   subtitulo: string
   ctaLabel: string
+  logo?: string
+  logoLargura?: number
+  logoAltura?: number
   antesDepois: MetricaAntesDepois[]
   destaquesMes: string[]
   oQueFoiFeito: string[]
   fotoAntes: string
   fotoDepois: string
-  galeria: FotoFeed[]
+  galeria?: FotoFeed[]
   fonteNota: string
 }
 
@@ -135,6 +154,9 @@ export const casesDetalhados: Record<string, CaseDetalhe> = {
   'sinter-mt': {
     slug: 'sinter-mt',
     cliente: 'SINTER-MT',
+    logo: '/cases/sinter-mt-logo.png',
+    logoLargura: 1412,
+    logoAltura: 1412,
     segmento: 'Sindicato dos terapeutas de Mato Grosso · saúde e bem-estar, práticas integrativas',
     servico: 'Gestão de Instagram + landing page da Jornada Sinter',
     inicioGestao: '25 de maio de 2026',
@@ -232,6 +254,101 @@ export const casesDetalhados: Record<string, CaseDetalhe> = {
       { file: '/cases/sinter-mt/feed/01-2026-06-01.webp', mes: '06', dia: '01' },
     ],
     fonteNota: 'Dados extraídos do Instagram Insights do SINTER-MT.',
+  },
+  'luiz-guedes': {
+    slug: 'luiz-guedes',
+    cliente: 'Luiz Guedes',
+    logo: '/cases/luiz-guedes-logo.jpg',
+    logoLargura: 1080,
+    logoAltura: 1080,
+    segmento: 'Personal trainer, treino online',
+    servico: 'Gestão de Instagram',
+    inicioGestao: '28 de fevereiro de 2026',
+    tag: 'Case real',
+    titulo: 'De 3.547 para 14.835 visualizações no primeiro mês',
+    subtitulo:
+      'Gestão de Instagram do personal trainer Luiz Guedes (@treinador_guedes). Primeiro mês completo de gestão, crescimento 100% orgânico.',
+    ctaLabel: 'Quero resultados assim',
+    antesDepois: [
+      { label: 'Visualizações totais', antes: '3.547', depois: '14.835', crescimento: '+318%' },
+      { label: 'Contas alcançadas', antes: '184', depois: '1.933', crescimento: '+950%' },
+      { label: 'Seguidores', antes: '175', depois: '201', crescimento: '+14,9%' },
+      { label: 'Posts publicados', antes: '1', depois: '12', crescimento: '+11 peças' },
+      { label: 'Visualizações de não seguidores', antes: '82%', depois: '70%', crescimento: 'Alcance ampliado' },
+    ],
+    destaquesMes: [
+      'Na primeira semana de março, as contas alcançadas cresceram 1.757% frente à semana anterior',
+      '70% das visualizações vieram de contas que ainda não seguiam o perfil, alcançando público novo',
+      '12 conteúdos publicados em março, contra apenas 1 em fevereiro',
+      'Cliques no link externo da bio cresceram 650% no período',
+      'Posts em carrossel foram o formato mais eficaz, com 64,9% das visualizações, no tema de hipertrofia e educação sobre treino',
+      'Melhor post do mês, publicado em 08/03, alcançou 1.700 visualizações',
+    ],
+    oQueFoiFeito: [
+      'Diagnóstico completo do perfil',
+      'Estudo de público para criação de persona',
+      'Definição de linha editorial e pilares de conteúdo',
+      'Tom de voz e identidade de comunicação',
+      'Benchmarking de concorrentes e outros perfis do nicho',
+      'Definição de objetivos',
+      'Acompanhamento ativo das métricas do perfil',
+      'Desenvolvimento estratégico de posts e carrosséis sobre hipertrofia e educação de treino',
+      'Edição de vídeos em reels',
+      'Calendário editorial',
+      'Postagem constante de conteúdo',
+      'Análise de desempenho mensal',
+      'Gestão diária do perfil',
+    ],
+    fotoAntes: '/portfolio/luiz-guedes-perfil-antes.png',
+    fotoDepois: '/portfolio/luiz-guedes-perfil-depois.png',
+    fonteNota: 'Dados extraídos do Instagram Insights de Luiz Guedes (@treinador_guedes), relatório de março de 2026.',
+  },
+  'tecia-alcantara': {
+    slug: 'tecia-alcantara',
+    cliente: 'Técia Alcântara',
+    logo: '/cases/tecia-alcantara-logo.png',
+    logoLargura: 500,
+    logoAltura: 500,
+    segmento: 'Arquitetura e design de interiores, Bahia',
+    servico: 'Gestão de Instagram',
+    inicioGestao: '8 de setembro de 2026',
+    tag: 'Case real',
+    titulo: 'De 1.493 para 3.000 visualizações em sete semanas',
+    subtitulo:
+      'Gestão de Instagram da arquiteta Técia Alcântara (@alcantara_arquitetura). Primeiro e segundo mês de gestão, crescimento 100% orgânico.',
+    ctaLabel: 'Quero resultados assim',
+    antesDepois: [
+      { label: 'Visualizações (30 dias)', antes: '1.493', depois: '3.000', crescimento: '+101%' },
+      { label: 'Seguidores', antes: '418', depois: '431', crescimento: '+3,1%' },
+      { label: 'Visitas ao perfil (30 dias)', antes: '69', depois: '132', crescimento: '+91,3%' },
+      { label: 'Interações (30 dias)', antes: '35', depois: '44', crescimento: '+25,7%' },
+      { label: 'Posts publicados', antes: '61', depois: '76', crescimento: '+24,6%' },
+    ],
+    destaquesMes: [
+      'Visualizações mais que dobraram desde o início da gestão, de 1.493 para 3.000 em cortes comparáveis de 30 dias',
+      'Reels é o motor do alcance novo: o post sobre autorização do condomínio somou sozinho 1,2 mil visualizações',
+      'Mais de 4 em cada 10 visualizações (42,4%) já vêm de fora da base atual de seguidores',
+      'Visitas ao perfil quase dobraram, de 69 para 132 em cortes comparáveis',
+      '+13 seguidores em sete semanas, crescimento consistente de conta de nicho local',
+    ],
+    oQueFoiFeito: [
+      'Diagnóstico completo do perfil',
+      'Estudo de público para criação de persona',
+      'Definição de linha editorial e pilares de conteúdo',
+      'Tom de voz e identidade de comunicação',
+      'Benchmarking de concorrentes e outros perfis do nicho',
+      'Definição de objetivos',
+      'Acompanhamento ativo das métricas do perfil',
+      'Desenvolvimento estratégico de reels e carrosséis sobre arquitetura, reforma e design de interiores',
+      'Edição de vídeos',
+      'Calendário editorial',
+      'Postagem constante de conteúdo',
+      'Análise de desempenho mensal',
+      'Gestão diária do perfil',
+    ],
+    fotoAntes: '/portfolio/tecia-alcantara-perfil-antes.png',
+    fotoDepois: '/portfolio/tecia-alcantara-perfil-depois.png',
+    fonteNota: 'Dados extraídos do Instagram Insights de Técia Alcântara (@alcantara_arquitetura), relatório de crescimento de outubro de 2026.',
   },
 }
 

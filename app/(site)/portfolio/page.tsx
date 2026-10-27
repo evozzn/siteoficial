@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import AntesDepoisToggle from '@/components/AntesDepoisToggle'
 import CtaButton from '@/components/CtaButton'
 import { portfolioItems, categoriasPortfolio } from '@/lib/portfolio'
 
@@ -63,13 +64,32 @@ export default function PortfolioPage() {
       {/* Grid de Portfólio */}
       {itensFiltrados.length > 0 ? (
         <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 items-start">
-          {itensFiltrados.map((item) => (
-            <div
-              key={item.id}
-              className="relative rounded-lg border border-gray-800 hover:border-primary/50 transition-all duration-300 overflow-hidden bg-gray-950"
-            >
-              {item.imagem && (
-                <div className="relative group">
+          {itensFiltrados.map((item) =>
+            item.imagemAntes && item.imagem ? (
+              <AntesDepoisToggle
+                key={item.id}
+                cliente={item.cliente}
+                fotoAntes={item.imagemAntes}
+                fotoDepois={item.imagem}
+              />
+            ) : item.rotulo && item.imagem ? (
+              <div key={item.id}>
+                <div className="flex items-center justify-center gap-4 mb-3" aria-hidden="true">
+                  <span className="p-1.5 rounded-full border border-transparent invisible">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                  </span>
+                  <span className="text-xs uppercase tracking-wide font-semibold w-16 text-center text-primary">
+                    {item.rotulo}
+                  </span>
+                  <span className="p-1.5 rounded-full border border-transparent invisible">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </span>
+                </div>
+                <div className="relative w-full overflow-hidden rounded-xl border border-gray-800">
                   <Image
                     src={item.imagem}
                     alt={item.titulo}
@@ -81,94 +101,115 @@ export default function PortfolioPage() {
                       imagensCarregadas.has(item.id) ? 'opacity-100' : 'opacity-0'
                     }`}
                   />
-                  {item.link && (
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-200"
-                    >
-                      <span className="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white text-sm font-semibold px-5 py-2.5 rounded-lg">
-                        Ver site
-                      </span>
-                    </a>
-                  )}
                 </div>
-              )}
-              {item.video && (
-                <video src={item.video} controls className="w-full block" />
-              )}
-              {item.youtubeId && (
-                <div
-                  className={`relative bg-black ${item.vertical ? 'aspect-[9/16]' : 'aspect-video'}`}
-                >
-                  {videosAtivos.has(item.id) ? (
-                    <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${item.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
-                      title={item.titulo}
-                      className="w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
+              </div>
+            ) : (
+              <div
+                key={item.id}
+                className="relative rounded-lg border border-gray-800 hover:border-primary/50 transition-all duration-300 overflow-hidden bg-gray-950"
+              >
+                {item.imagem && (
+                  <div className="relative group">
+                    <Image
+                      src={item.imagem}
+                      alt={item.titulo}
+                      width={item.imagemWidth ?? 1080}
+                      height={item.imagemHeight ?? 1350}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      onLoad={() => marcarImagemCarregada(item.id)}
+                      className={`w-full h-auto block transition-opacity duration-500 ease-out ${
+                        imagensCarregadas.has(item.id) ? 'opacity-100' : 'opacity-0'
+                      }`}
                     />
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => ativarVideo(item.id)}
-                      aria-label={`Reproduzir vídeo: ${item.titulo}`}
-                      className="group absolute inset-0 w-full h-full"
-                    >
-                      <Image
-                        src={`https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg`}
-                        alt={item.titulo}
-                        width={480}
-                        height={360}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        onLoad={() => marcarImagemCarregada(item.id)}
-                        className={`w-full h-full object-cover transition-opacity duration-500 ease-out ${
-                          imagensCarregadas.has(item.id) ? 'opacity-100' : 'opacity-0'
-                        }`}
-                      />
-                      <span className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/25 transition-colors duration-200">
-                        <span className="flex items-center justify-center w-16 h-16 rounded-full bg-primary shadow-lg group-hover:bg-secondary transition-colors duration-200">
-                          <svg
-                            className="w-6 h-6 text-white ml-1"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                          >
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
+                    {item.link && (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-200"
+                      >
+                        <span className="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white text-sm font-semibold px-5 py-2.5 rounded-lg">
+                          Ver site
                         </span>
-                      </span>
-                    </button>
-                  )}
-                </div>
-              )}
-              {item.views && (
-                <span className="absolute bottom-3 right-3 flex items-center gap-1 bg-black/70 text-white text-xs font-medium px-2 py-1 rounded">
-                  <svg
-                    className="w-3.5 h-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                      </a>
+                    )}
+                  </div>
+                )}
+                {item.video && (
+                  <video src={item.video} controls className="w-full block" />
+                )}
+                {item.youtubeId && (
+                  <div
+                    className={`relative bg-black ${item.vertical ? 'aspect-[9/16]' : 'aspect-video'}`}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                  {item.views}
-                </span>
-              )}
-            </div>
-          ))}
+                    {videosAtivos.has(item.id) ? (
+                      <iframe
+                        src={`https://www.youtube-nocookie.com/embed/${item.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+                        title={item.titulo}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => ativarVideo(item.id)}
+                        aria-label={`Reproduzir vídeo: ${item.titulo}`}
+                        className="group absolute inset-0 w-full h-full"
+                      >
+                        <Image
+                          src={`https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg`}
+                          alt={item.titulo}
+                          width={480}
+                          height={360}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          onLoad={() => marcarImagemCarregada(item.id)}
+                          className={`w-full h-full object-cover transition-opacity duration-500 ease-out ${
+                            imagensCarregadas.has(item.id) ? 'opacity-100' : 'opacity-0'
+                          }`}
+                        />
+                        <span className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/25 transition-colors duration-200">
+                          <span className="flex items-center justify-center w-16 h-16 rounded-full bg-primary shadow-lg group-hover:bg-secondary transition-colors duration-200">
+                            <svg
+                              className="w-6 h-6 text-white ml-1"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                            >
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </span>
+                        </span>
+                      </button>
+                    )}
+                  </div>
+                )}
+                {item.views && (
+                  <span className="absolute bottom-3 right-3 flex items-center gap-1 bg-black/70 text-white text-xs font-medium px-2 py-1 rounded">
+                    <svg
+                      className="w-3.5 h-3.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    {item.views}
+                  </span>
+                )}
+              </div>
+            )
+          )}
         </section>
       ) : (
         <section className="text-center bg-gray-900/50 border border-gray-800 rounded-lg py-20 px-6 mb-16">

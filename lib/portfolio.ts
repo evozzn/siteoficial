@@ -7,6 +7,14 @@ export interface PortfolioItem {
   imagem?: string
   imagemWidth?: number
   imagemHeight?: number
+  // Print do perfil ANTES da gestão. Só preencher quando existir o par
+  // completo (antes e depois); nesse caso o card usa as setas de antes e
+  // depois em vez do print estático único.
+  imagemAntes?: string
+  // Rótulo estático (ex: "Depois") mostrado acima do print quando NÃO há
+  // par antes/depois, só pra manter o alinhamento visual com os cards que
+  // têm a seta.
+  rotulo?: string
   video?: string
   youtubeId?: string
   vertical?: boolean
@@ -44,6 +52,19 @@ export const portfolioItems: PortfolioItem[] = [
     imagem: '/portfolio/luiz-guedes-perfil-depois.png',
     imagemWidth: 1220,
     imagemHeight: 2712,
+    imagemAntes: '/portfolio/luiz-guedes-perfil-antes.png',
+  },
+  {
+    id: 'tecia-alcantara-perfil-depois',
+    titulo: 'Perfil depois da gestão',
+    cliente: 'Técia Alcântara · Arquitetura e Design de Interiores',
+    categoria: 'Social Media',
+    descricao:
+      'Perfil da Técia Alcântara após a gestão da Evozzn, com identidade visual consistente e conteúdo estratégico.',
+    imagem: '/portfolio/tecia-alcantara-perfil-depois.png',
+    imagemWidth: 1220,
+    imagemHeight: 2712,
+    imagemAntes: '/portfolio/tecia-alcantara-perfil-antes.png',
   },
   {
     id: 'sinter-mt-perfil-depois',
@@ -52,9 +73,10 @@ export const portfolioItems: PortfolioItem[] = [
     categoria: 'Social Media',
     descricao:
       'Perfil do SINTER-MT após a gestão da Evozzn, com identidade visual consistente e conteúdo estratégico.',
-    imagem: '/portfolio/sinter-mt-perfil-depois.png',
-    imagemWidth: 1220,
-    imagemHeight: 2712,
+    imagem: '/cases/sinter-mt/perfil-depois.webp',
+    imagemWidth: 480,
+    imagemHeight: 1067,
+    imagemAntes: '/cases/sinter-mt/perfil-antes.webp',
   },
   {
     id: 'evozzn-perfil',
@@ -66,6 +88,7 @@ export const portfolioItems: PortfolioItem[] = [
     imagem: '/portfolio/evozzn-perfil.png',
     imagemWidth: 1220,
     imagemHeight: 2712,
+    rotulo: 'Depois',
   },
   {
     id: 'evozzn-post-1',
