@@ -23,7 +23,7 @@ export default function AntesDepoisToggle({
         <button
           type="button"
           onClick={() => setMostrarDepois(false)}
-          aria-label={`Ver perfil do ${cliente} antes da gestão da Evozzn`}
+          aria-label={`Ver perfil de ${cliente} antes da gestão da Evozzn`}
           disabled={!mostrarDepois}
           className="p-1.5 rounded-full border border-gray-800 text-gray-400 hover:text-white hover:border-primary/50 disabled:opacity-20 disabled:pointer-events-none transition-colors duration-200"
         >
@@ -41,7 +41,7 @@ export default function AntesDepoisToggle({
         <button
           type="button"
           onClick={() => setMostrarDepois(true)}
-          aria-label={`Ver perfil do ${cliente} depois da gestão da Evozzn`}
+          aria-label={`Ver perfil de ${cliente} depois da gestão da Evozzn`}
           disabled={mostrarDepois}
           className="p-1.5 rounded-full border border-gray-800 text-gray-400 hover:text-white hover:border-primary/50 disabled:opacity-20 disabled:pointer-events-none transition-colors duration-200"
         >
@@ -63,7 +63,7 @@ export default function AntesDepoisToggle({
           <div className="w-1/2 flex-shrink-0">
             <img
               src={fotoAntes}
-              alt={`Perfil do ${cliente} antes da gestão da Evozzn`}
+              alt={`Perfil de ${cliente} antes da gestão da Evozzn`}
               className="w-full block"
               loading="lazy"
             />
@@ -71,7 +71,7 @@ export default function AntesDepoisToggle({
           <div className="w-1/2 flex-shrink-0">
             <img
               src={fotoDepois}
-              alt={`Perfil do ${cliente} depois da gestão da Evozzn`}
+              alt={`Perfil de ${cliente} depois da gestão da Evozzn`}
               className="w-full block"
               loading="lazy"
             />
