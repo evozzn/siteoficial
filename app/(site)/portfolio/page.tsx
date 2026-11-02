@@ -71,6 +71,8 @@ export default function PortfolioPage() {
                 cliente={item.cliente}
                 fotoAntes={item.imagemAntes}
                 fotoDepois={item.imagem}
+                largura={item.imagemWidth}
+                altura={item.imagemHeight}
               />
             ) : item.rotulo && item.imagem ? (
               <div key={item.id}>

@@ -192,6 +192,8 @@ function CaseInstagramPage({ caseDetalhe }: { caseDetalhe: CaseDetalhe }) {
               cliente={caseDetalhe.cliente}
               fotoAntes={caseDetalhe.fotoAntes}
               fotoDepois={caseDetalhe.fotoDepois}
+              largura={caseDetalhe.fotoLargura}
+              altura={caseDetalhe.fotoAltura}
             />
           </div>
         </div>

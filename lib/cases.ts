@@ -146,6 +146,8 @@ export interface CaseDetalhe {
   oQueFoiFeito: string[]
   fotoAntes: string
   fotoDepois: string
+  fotoLargura?: number
+  fotoAltura?: number
   galeria?: FotoFeed[]
   fonteNota: string
 }
@@ -200,6 +202,8 @@ export const casesDetalhados: Record<string, CaseDetalhe> = {
     ],
     fotoAntes: '/cases/sinter-mt/perfil-antes.webp',
     fotoDepois: '/cases/sinter-mt/perfil-depois.webp',
+    fotoLargura: 480,
+    fotoAltura: 1067,
     galeria: [
       { file: '/cases/sinter-mt/feed/51-2026-09-25.webp', mes: '09', dia: '25' },
       { file: '/cases/sinter-mt/feed/50-2026-09-23.webp', mes: '09', dia: '23' },
@@ -301,6 +305,8 @@ export const casesDetalhados: Record<string, CaseDetalhe> = {
     ],
     fotoAntes: '/portfolio/luiz-guedes-perfil-antes.png',
     fotoDepois: '/portfolio/luiz-guedes-perfil-depois.png',
+    fotoLargura: 1220,
+    fotoAltura: 2712,
     fonteNota: 'Dados extraídos do Instagram Insights de Luiz Guedes (@treinador_guedes), relatório de março de 2026.',
   },
   'tecia-alcantara': {
@@ -348,6 +354,8 @@ export const casesDetalhados: Record<string, CaseDetalhe> = {
     ],
     fotoAntes: '/portfolio/tecia-alcantara-perfil-antes.png',
     fotoDepois: '/portfolio/tecia-alcantara-perfil-depois.png',
+    fotoLargura: 1220,
+    fotoAltura: 2712,
     fonteNota: 'Dados extraídos do Instagram Insights de Técia Alcântara (@alcantara_arquitetura), relatório de crescimento de outubro de 2026.',
   },
 }

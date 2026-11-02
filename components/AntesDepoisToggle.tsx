@@ -1,19 +1,26 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 interface AntesDepoisToggleProps {
   cliente: string
   fotoAntes: string
   fotoDepois: string
+  largura?: number
+  altura?: number
 }
 
 export default function AntesDepoisToggle({
   cliente,
   fotoAntes,
   fotoDepois,
+  largura = 1220,
+  altura = 2712,
 }: AntesDepoisToggleProps) {
   const [mostrarDepois, setMostrarDepois] = useState(true)
+  const [antesCarregada, setAntesCarregada] = useState(false)
+  const [depoisCarregada, setDepoisCarregada] = useState(false)
 
   const rotulo = mostrarDepois ? 'Depois' : 'Antes'
 
@@ -52,7 +59,7 @@ export default function AntesDepoisToggle({
       </div>
 
       <div
-        className={`relative w-full overflow-hidden rounded-xl border transition-colors duration-300 ${
+        className={`relative w-full overflow-hidden rounded-xl border bg-gray-900/50 transition-colors duration-300 ${
           mostrarDepois ? 'border-primary/40' : 'border-gray-800'
         }`}
       >
@@ -61,19 +68,30 @@ export default function AntesDepoisToggle({
           style={{ transform: mostrarDepois ? 'translateX(-50%)' : 'translateX(0%)' }}
         >
           <div className="w-1/2 flex-shrink-0">
-            <img
+            <Image
               src={fotoAntes}
               alt={`Perfil de ${cliente} antes da gestão da Evozzn`}
-              className="w-full block"
-              loading="lazy"
+              width={largura}
+              height={altura}
+              sizes="(max-width: 768px) 80vw, 400px"
+              onLoad={() => setAntesCarregada(true)}
+              className={`w-full h-auto block transition-opacity duration-700 ease-out ${
+                antesCarregada ? 'opacity-100' : 'opacity-0'
+              }`}
             />
           </div>
           <div className="w-1/2 flex-shrink-0">
-            <img
+            <Image
               src={fotoDepois}
               alt={`Perfil de ${cliente} depois da gestão da Evozzn`}
-              className="w-full block"
-              loading="lazy"
+              width={largura}
+              height={altura}
+              sizes="(max-width: 768px) 80vw, 400px"
+              priority
+              onLoad={() => setDepoisCarregada(true)}
+              className={`w-full h-auto block transition-opacity duration-700 ease-out ${
+                depoisCarregada ? 'opacity-100' : 'opacity-0'
+              }`}
             />
           </div>
         </div>
