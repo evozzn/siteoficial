@@ -262,7 +262,7 @@ export const casesDetalhados: Record<string, CaseDetalhe> = {
   'luiz-guedes': {
     slug: 'luiz-guedes',
     cliente: 'Luiz Guedes',
-    logo: '/cases/luiz-guedes-logo.jpg',
+    logo: '/cases/luiz-guedes-logo-transparente.png',
     logoLargura: 1080,
     logoAltura: 1080,
     segmento: 'Personal trainer, treino online',
